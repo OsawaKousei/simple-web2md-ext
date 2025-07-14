@@ -9,7 +9,12 @@ export async function downloadFile(
     const safeFilename = filename.replace(/[\\\/\?%*:|"<>]/g, "-");
 
     // Data URLを作成（Service Workerでも動作）
-    const encodedContent = btoa(unescape(encodeURIComponent(content)));
+    const encoder = new TextEncoder();
+    const uint8Array = encoder.encode(content);
+    const binaryString = Array.from(uint8Array, (byte) =>
+      String.fromCharCode(byte)
+    ).join("");
+    const encodedContent = btoa(binaryString);
     const dataUrl = `data:text/markdown;base64,${encodedContent}`;
 
     // ダウンロードを実行
