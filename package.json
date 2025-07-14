@@ -1,0 +1,29 @@
+{
+  "name": "simple-web2md-ext",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --mode=production",
+    "watch": "webpack --mode=development --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "@types/webextension-polyfill": "^0.12.3",
+    "copy-webpack-plugin": "^13.0.0",
+    "install": "^0.13.0",
+    "npm": "^11.4.2",
+    "ts-loader": "^9.5.2",
+    "typescript": "^5.8.3",
+    "webpack": "^5.100.1",
+    "webpack-cli": "^6.0.1"
+  },
+  "dependencies": {
+    "turndown": "^7.2.0",
+    "webextension-polyfill": "^0.12.0"
+  }
+}

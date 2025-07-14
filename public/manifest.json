@@ -1,0 +1,13 @@
+{
+  "manifest_version": 3,
+  "name": "Web to Markdown",
+  "version": "1.0",
+  "description": "クリック一つでウェブページをMarkdown形式で保存します。",
+  "permissions": ["activeTab", "scripting", "downloads"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_title": "このページをMarkdownで保存"
+  }
+}
