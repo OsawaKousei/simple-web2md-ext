@@ -1,5 +1,7 @@
 # Web to Markdown
 
+_[English version](README_EN.md)_
+
 クリック一つでウェブページを Markdown 形式で保存できるブラウザ拡張機能です。
 
 ## 🌟 特徴
@@ -12,16 +14,15 @@
 
 ## 📋 動作環境
 
-- Google Chrome 88 以降
-- Microsoft Edge 88 以降
-- Firefox 109 以降（Manifest V3 対応版）
+- Google Chrome
+- Microsoft Edge
 
 ## 🚀 インストール方法
 
 1. このリポジトリをクローンまたはダウンロード
 
 ```bash
-git clone https://github.com/yourusername/simple-web2md-ext.git
+git clone https://github.com/OsawaKousei/simple-web2md-ext.git
 cd simple-web2md-ext
 ```
 
@@ -74,7 +75,7 @@ npm run build
 
 ```bash
 # リポジトリをクローン
-git clone https://github.com/yourusername/simple-web2md-ext.git
+git clone https://github.com/OsawaKousei/simple-web2md-ext.git
 cd simple-web2md-ext
 
 # 依存関係をインストール
@@ -94,10 +95,6 @@ npm run package
 - **Mozilla Readability**: コンテンツ抽出
 - **Turndown**: HTML to Markdown 変換
 - **WebExtension Polyfill**: クロスブラウザ対応
-
-## 📄 ライセンス
-
-このプロジェクトは [ISC License](LICENSE) の下で公開されています。
 
 ## 🙏 謝辞
 
