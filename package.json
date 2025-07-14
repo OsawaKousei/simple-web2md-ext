@@ -6,8 +6,8 @@
   "scripts": {
     "build:firefox": "webpack --mode=production && shx cp public/manifest.firefox.json dist/manifest.json",
     "build:chrome": "webpack --mode=production && shx cp public/manifest.chrome.json dist/manifest.json",
-    "package:firefox": "npm run build:firefox && bestzip dist/simple-web2md-ext.zip dist/*",
-    "package:chrome": "npm run build:chrome && bestzip dist/simple-web2md-ext.zip dist/*"
+    "package:firefox": "npm run build:firefox && cd dist && bestzip ../simple-web2md-ext.zip *",
+    "package:chrome": "npm run build:chrome && cd dist && bestzip ../simple-web2md-ext.zip *"
   },
   "keywords": [],
   "author": "",

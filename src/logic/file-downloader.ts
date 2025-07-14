@@ -26,6 +26,15 @@ function generateSafeFilename(title: string): string {
   return safeName;
 }
 
+/**
+ * data URLをBlobに変換するヘルパー関数
+ */
+async function dataURLtoBlob(dataURL: string): Promise<Blob> {
+  const res = await fetch(dataURL);
+  const blob = await res.blob();
+  return blob;
+}
+
 export async function downloadFile(
   filename: string,
   content: string
@@ -35,7 +44,7 @@ export async function downloadFile(
     const baseName = filename.replace(/\.md$/, ""); // .md拡張子を一旦除去
     const safeFilename = generateSafeFilename(baseName) + ".md";
 
-    // Data URLを作成（Service Workerでも動作）
+    // Data URLを作成
     const encoder = new TextEncoder();
     const uint8Array = encoder.encode(content);
     const binaryString = Array.from(uint8Array, (byte) =>
@@ -44,12 +53,27 @@ export async function downloadFile(
     const encodedContent = btoa(binaryString);
     const dataUrl = `data:text/markdown;base64,${encodedContent}`;
 
-    // ダウンロードを実行
-    await browser.downloads.download({
-      url: dataUrl,
-      filename: safeFilename,
-      saveAs: false,
-    });
+    // URL.createObjectURLが使えるかチェック (Firefoxではtrue, ChromeのService Workerではfalse)
+    if (typeof URL.createObjectURL === "function") {
+      // Firefox向けの処理: data URLをBlobに変換してからblob URLを生成
+      console.log("Firefox-style download: using Blob URL");
+      const blob = await dataURLtoBlob(dataUrl);
+      const blobUrl = URL.createObjectURL(blob);
+
+      await browser.downloads.download({
+        url: blobUrl,
+        filename: safeFilename,
+        saveAs: false,
+      });
+    } else {
+      // Chrome (MV3) 向けの処理: data URLを直接ダウンロード
+      console.log("Chrome-style download: using data: URL");
+      await browser.downloads.download({
+        url: dataUrl,
+        filename: safeFilename,
+        saveAs: false,
+      });
+    }
   } catch (error) {
     console.error("ファイルダウンロードエラー:", error);
     throw error;
