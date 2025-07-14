@@ -16,33 +16,28 @@ _[English version](README_EN.md)_
 
 - Google Chrome
 - Microsoft Edge
+- Mozilla Firefox
 
 ## 🚀 インストール方法
 
-1. このリポジトリをクローンまたはダウンロード
+1. [GitHub リリースページ](https://github.com/OsawaKousei/simple-web2md-ext/releases/tag/v1.0)から zip ファイルをダウンロード
 
-```bash
-git clone https://github.com/OsawaKousei/simple-web2md-ext.git
-cd simple-web2md-ext
-```
+2. zip ファイルを解凍
 
-2. 依存関係をインストール
+3. ブラウザで拡張機能を読み込み
 
-```bash
-npm install
-```
+**Chrome/Edge の場合:**
 
-3. ビルド
+- `chrome://extensions/` または `edge://extensions/` にアクセス
+- 「デベロッパーモード」を有効化
+- 「パッケージ化されていない拡張機能を読み込む」をクリック
+- 解凍した `dist` フォルダを選択
 
-```bash
-npm run build
-```
+**Firefox の場合:**
 
-4. Chrome/Edge で拡張機能を読み込み
-   - `chrome://extensions/` または `edge://extensions/` にアクセス
-   - 「デベロッパーモード」を有効化
-   - 「パッケージ化されていない拡張機能を読み込む」をクリック
-   - `dist` フォルダを選択
+- `about:debugging#/runtime/this-firefox` にアクセス
+- 「一時的なアドオンを読み込む」をクリック
+- 解凍した `dist` フォルダ内の `manifest.json` を選択
 
 ## 📖 使用方法
 
@@ -82,10 +77,16 @@ cd simple-web2md-ext
 npm install
 
 # 本番用ビルド
-npm run build
+# chrome/edge
+npm run build:chrome
+# firefox
+npm run build:firefox
 
 # 拡張機能パッケージの作成
-npm run package
+# chrome/edge
+npm run package:chrome
+# firefox
+npm run package:firefox
 ```
 
 ### 技術スタック

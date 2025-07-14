@@ -12,37 +12,32 @@ A browser extension that saves web pages as Markdown format with just one click.
 - **Japanese Support**: Full support for Japanese content
 - **Lightweight**: Simple and fast operation
 
-## 📋 Requirements
+## 📋 Environment
 
 - Google Chrome
 - Microsoft Edge
+- Mozilla Firefox
 
 ## 🚀 Installation
 
-1. Clone or download this repository
+1. Download zip file from [GitHub Releases](https://github.com/OsawaKousei/simple-web2md-ext/releases/tag/v1.0)
 
-```bash
-git clone https://github.com/OsawaKousei/simple-web2md-ext.git
-cd simple-web2md-ext
-```
+2. Extract the zip file
 
-2. Install dependencies
+3. Load extension in your browser
 
-```bash
-npm install
-```
+**For Chrome/Edge:**
 
-3. Build
+- Navigate to `chrome://extensions/` or `edge://extensions/`
+- Enable "Developer mode"
+- Click "Load unpacked"
+- Select the extracted `dist` folder
 
-```bash
-npm run build
-```
+**For Firefox:**
 
-4. Load extension in Chrome/Edge
-   - Navigate to `chrome://extensions/` or `edge://extensions/`
-   - Enable "Developer mode"
-   - Click "Load unpacked"
-   - Select the `dist` folder
+- Navigate to `about:debugging#/runtime/this-firefox`
+- Click "Load Temporary Add-on"
+- Select `manifest.json` in the extracted `dist` folder
 
 ## 📖 Usage
 
@@ -82,10 +77,16 @@ cd simple-web2md-ext
 npm install
 
 # Production build
-npm run build
+# chrome/edge
+npm run build:chrome
+# firefox
+npm run build:firefox
 
 # Create extension package
-npm run package
+# chrome/edge
+npm run package:chrome
+# firefox
+npm run package:firefox
 ```
 
 ### Tech Stack
