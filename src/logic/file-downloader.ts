@@ -5,22 +5,19 @@ export async function downloadFile(
   content: string
 ): Promise<void> {
   try {
-    // ファイル名から不正な文字を除去
-    const safeFilename = filename.replace(/[\\?%*:|"<>]/g, "-");
+    // ファイル名から不正な文字を除去（パス区切り文字も含む）
+    const safeFilename = filename.replace(/[\\\/\?%*:|"<>]/g, "-");
 
-    // BlobとしてMarkdownコンテンツを作成
-    const blob = new Blob([content], { type: "text/markdown" });
-    const url = URL.createObjectURL(blob);
+    // Data URLを作成（Service Workerでも動作）
+    const encodedContent = btoa(unescape(encodeURIComponent(content)));
+    const dataUrl = `data:text/markdown;base64,${encodedContent}`;
 
     // ダウンロードを実行
     await browser.downloads.download({
-      url: url,
+      url: dataUrl,
       filename: safeFilename,
       saveAs: false,
     });
-
-    // メモリ解放
-    URL.revokeObjectURL(url);
   } catch (error) {
     console.error("ファイルダウンロードエラー:", error);
     throw error;
