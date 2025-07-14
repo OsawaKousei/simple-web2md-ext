@@ -1,0 +1,23 @@
+{
+  "manifest_version": 3,
+  "name": "Web to Markdown",
+  "version": "1.0",
+  "description": "クリック一つでウェブページをMarkdown形式で保存します。",
+  "permissions": ["activeTab", "scripting", "downloads"],
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "action": {
+    "default_title": "このページをMarkdownで保存",
+    "default_icon": {
+      "16": "icons/icon_16.png",
+      "48": "icons/icon_48.png",
+      "128": "icons/icon_128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon_16.png",
+    "48": "icons/icon_48.png",
+    "128": "icons/icon_128.png"
+  }
+}

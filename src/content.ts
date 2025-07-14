@@ -8,13 +8,13 @@ if (!(window as any).markdownConverterInitialized) {
   browser.runtime.onMessage.addListener((request: any) => {
     // メッセージのコマンドを確認
     if (request.command === "GET_MARKDOWN") {
-      // HTMLをMarkdownに変換
-      const markdown = convertToMarkdown(document.body.innerHTML);
+      // HTMLをMarkdownに変換（Readabilityを使用）
+      const result = convertToMarkdown();
 
       // ページタイトルと変換結果を非同期で返す
       return Promise.resolve({
-        title: document.title,
-        markdown: markdown,
+        title: result.title,
+        markdown: result.markdown,
       });
     }
   });

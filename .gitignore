@@ -1,4 +1,12 @@
+# package files
 node_modules/
+
+# settings
 .vscode/
+
+# build output
 dist/
+*zip
+
+# development files
 doc/

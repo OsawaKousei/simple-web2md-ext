@@ -4,9 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack --mode=production",
-    "watch": "webpack --mode=development --watch"
+    "build:firefox": "webpack --mode=production && shx cp public/manifest.firefox.json dist/manifest.json",
+    "build:chrome": "webpack --mode=production && shx cp public/manifest.chrome.json dist/manifest.json",
+    "package:firefox": "npm run build:firefox && cd dist && bestzip ../simple-web2md-ext.zip *",
+    "package:chrome": "npm run build:chrome && cd dist && bestzip ../simple-web2md-ext.zip *"
   },
   "keywords": [],
   "author": "",
@@ -14,15 +15,18 @@
   "type": "commonjs",
   "devDependencies": {
     "@types/webextension-polyfill": "^0.12.3",
+    "bestzip": "^2.2.1",
     "copy-webpack-plugin": "^13.0.0",
     "install": "^0.13.0",
     "npm": "^11.4.2",
+    "shx": "^0.4.0",
     "ts-loader": "^9.5.2",
     "typescript": "^5.8.3",
     "webpack": "^5.100.1",
     "webpack-cli": "^6.0.1"
   },
   "dependencies": {
+    "@mozilla/readability": "^0.6.0",
     "turndown": "^7.2.0",
     "webextension-polyfill": "^0.12.0"
   }
