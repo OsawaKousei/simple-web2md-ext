@@ -16,6 +16,7 @@
     "build:chrome": "webpack --mode=production --env browser=chrome",
     "postbuild:chrome": "node scripts/pack-chrome.cjs",
     "package:firefox": "npm run build:firefox && shx mkdir -p release && cd dist/firefox && bestzip ../../release/simple-web2md-ext-firefox.zip *",
+    "review:firefox": "npm ci --no-audit && webpack --mode=production --env browser=firefox && shx mkdir -p release && cd dist/firefox && bestzip ../../release/simple-web2md-ext-firefox.zip *",
     "package:chrome": "npm run build:chrome && shx mkdir -p release && cd dist/chrome && bestzip ../../release/simple-web2md-ext-chrome.zip *"
   },
   "keywords": [],

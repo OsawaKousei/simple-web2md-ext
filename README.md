@@ -66,6 +66,8 @@ _[English version](README_EN.md)_
 
 ## 📝 開発
 
+Mozilla 審査用ソースコードの提出と再現ビルドの手順は [MOZILLA_REVIEW.md](MOZILLA_REVIEW.md) を参照してください。
+
 ### 開発環境のセットアップ
 
 ```bash

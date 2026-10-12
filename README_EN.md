@@ -66,6 +66,8 @@ A browser extension that saves web pages as Markdown format with just one click.
 
 ## 📝 Development
 
+For Mozilla source submission and reproducible build instructions, see [MOZILLA_REVIEW.md](MOZILLA_REVIEW.md).
+
 ### Development Environment Setup
 
 ```bash
