@@ -73,6 +73,9 @@ A browser extension that saves web pages as Markdown format with just one click.
 git clone https://github.com/OsawaKousei/simple-web2md-ext.git
 cd simple-web2md-ext
 
+# Switch to the specified Node.js version
+fnm use
+
 # Install dependencies
 npm install
 

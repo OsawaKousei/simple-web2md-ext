@@ -73,6 +73,9 @@ _[English version](README_EN.md)_
 git clone https://github.com/OsawaKousei/simple-web2md-ext.git
 cd simple-web2md-ext
 
+# 指定された Node.js バージョンに切り替え
+fnm use
+
 # 依存関係をインストール
 npm install
 
