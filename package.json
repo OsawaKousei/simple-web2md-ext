@@ -14,6 +14,7 @@
   "license": "ISC",
   "type": "commonjs",
   "devDependencies": {
+    "@types/turndown": "^5.0.6",
     "@types/webextension-polyfill": "^0.12.3",
     "bestzip": "^2.2.1",
     "copy-webpack-plugin": "^14.0.0",
