@@ -4,13 +4,17 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build:firefox": "webpack --mode=production && shx cp public/manifest.firefox.json dist/manifest.json",
-    "build:chrome": "webpack --mode=production && shx cp public/manifest.chrome.json dist/manifest.json",
-    "package:firefox": "npm run build:firefox && cd dist && bestzip ../simple-web2md-ext.zip *",
-    "package:chrome": "npm run build:chrome && cd dist && bestzip ../simple-web2md-ext.zip *"
+    "build": "npm run package:chrome && npm run package:firefox",
+    "build:firefox": "webpack --mode=production --env browser=firefox",
+    "build:chrome": "webpack --mode=production --env browser=chrome",
+    "package:firefox": "npm run build:firefox && shx mkdir -p release && cd dist/firefox && bestzip ../../release/simple-web2md-ext-firefox.zip *",
+    "package:chrome": "npm run build:chrome && shx mkdir -p release && cd dist/chrome && bestzip ../../release/simple-web2md-ext-chrome.zip *"
   },
   "keywords": [],
-  "author": "",
+  "author": {
+    "name": "n622",
+    "email": "n622jwith@gmail.com"
+  },
   "license": "ISC",
   "type": "commonjs",
   "devDependencies": {

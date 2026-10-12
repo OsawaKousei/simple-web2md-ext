@@ -31,13 +31,13 @@ A browser extension that saves web pages as Markdown format with just one click.
 - Navigate to `chrome://extensions/` or `edge://extensions/`
 - Enable "Developer mode"
 - Click "Load unpacked"
-- Select the extracted `dist` folder
+- Select the extracted folder
 
 **For Firefox:**
 
 - Navigate to `about:debugging#/runtime/this-firefox`
 - Click "Load Temporary Add-on"
-- Select `manifest.json` in the extracted `dist` folder
+- Select `manifest.json` in the extracted folder
 
 ## 📖 Usage
 
@@ -79,18 +79,16 @@ fnm use
 # Install dependencies
 npm install
 
-# Production build
-# chrome/edge
-npm run build:chrome
-# firefox
-npm run build:firefox
-
-# Create extension package
-# chrome/edge
-npm run package:chrome
-# firefox
-npm run package:firefox
+# Create store-ready ZIP files for Chrome/Edge and Firefox
+npm run build
 ```
+
+Output: `release/simple-web2md-ext-chrome.zip` and `release/simple-web2md-ext-firefox.zip`.
+Each ZIP contains the browser-specific `manifest.json` at its root.
+To package one browser, run `npm run package:chrome` or `npm run package:firefox`.
+
+Publisher: **KUPAC LLC** / Contact: **dev@kupac.co.jp**.
+Set the publisher name and contact email in the Chrome Web Store and Firefox Add-ons developer profiles as well.
 
 ### Tech Stack
 

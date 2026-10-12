@@ -6,6 +6,7 @@ node_modules/
 
 # build output
 dist/
+release/
 *zip
 
 # development files
