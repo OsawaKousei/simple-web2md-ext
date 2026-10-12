@@ -1,5 +1,6 @@
 import browser from "webextension-polyfill";
 import { convertToMarkdown } from "./logic/markdown-converter";
+import { downloadFile } from "./logic/file-downloader";
 
 // メッセージリスナーが重複しないようにフラグで管理
 const converterWindow = window as Window & {
@@ -15,16 +16,16 @@ if (!converterWindow.markdownConverterInitialized) {
       typeof request === "object" &&
       request !== null &&
       "command" in request &&
-      request.command === "GET_MARKDOWN"
+      request.command === "SAVE_MARKDOWN"
     ) {
       // HTMLをMarkdownに変換（Readabilityを使用）
       const result = convertToMarkdown();
 
-      // ページタイトルと変換結果を非同期で返す
-      return Promise.resolve({
-        title: result.title,
-        markdown: result.markdown,
-      });
+      if (result.markdown) {
+        downloadFile(`${result.title}.md`, result.markdown);
+      }
+
+      return Promise.resolve(true);
     }
   });
 }

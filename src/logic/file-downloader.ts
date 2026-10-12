@@ -1,5 +1,3 @@
-import browser from "webextension-polyfill";
-
 /**
  * サニタイズされたファイル名を生成
  */
@@ -28,55 +26,25 @@ function generateSafeFilename(title: string): string {
 }
 
 /**
- * data URLをBlobに変換するヘルパー関数
+ * コンテンツスクリプトからブラウザ標準のダウンロード機能で保存する
  */
-async function dataURLtoBlob(dataURL: string): Promise<Blob> {
-  const res = await fetch(dataURL);
-  const blob = await res.blob();
-  return blob;
-}
+export function downloadFile(filename: string, content: string): void {
+  const baseName = filename.replace(/\.md$/, "");
+  const safeFilename = generateSafeFilename(baseName) + ".md";
+  const blob = new Blob([content], { type: "text/markdown;charset=utf-8" });
+  const blobUrl = URL.createObjectURL(blob);
+  const link = document.createElement("a");
 
-export async function downloadFile(
-  filename: string,
-  content: string,
-): Promise<void> {
+  link.href = blobUrl;
+  link.download = safeFilename;
+  link.style.display = "none";
+
   try {
-    // ファイル名を安全に変換
-    const baseName = filename.replace(/\.md$/, ""); // .md拡張子を一旦除去
-    const safeFilename = generateSafeFilename(baseName) + ".md";
-
-    // Data URLを作成
-    const encoder = new TextEncoder();
-    const uint8Array = encoder.encode(content);
-    const binaryString = Array.from(uint8Array, (byte) =>
-      String.fromCharCode(byte),
-    ).join("");
-    const encodedContent = btoa(binaryString);
-    const dataUrl = `data:text/markdown;base64,${encodedContent}`;
-
-    // URL.createObjectURLが使えるかチェック (Firefoxではtrue, ChromeのService Workerではfalse)
-    if (typeof URL.createObjectURL === "function") {
-      // Firefox向けの処理: data URLをBlobに変換してからblob URLを生成
-      console.log("Firefox-style download: using Blob URL");
-      const blob = await dataURLtoBlob(dataUrl);
-      const blobUrl = URL.createObjectURL(blob);
-
-      await browser.downloads.download({
-        url: blobUrl,
-        filename: safeFilename,
-        saveAs: false,
-      });
-    } else {
-      // Chrome (MV3) 向けの処理: data URLを直接ダウンロード
-      console.log("Chrome-style download: using data: URL");
-      await browser.downloads.download({
-        url: dataUrl,
-        filename: safeFilename,
-        saveAs: false,
-      });
-    }
-  } catch (error) {
-    console.error("ファイルダウンロードエラー:", error);
-    throw error;
+    (document.body ?? document.documentElement).appendChild(link);
+    link.click();
+  } finally {
+    link.remove();
+    // ダウンロード開始前に URL を無効化しないよう、後で解放する
+    window.setTimeout(() => URL.revokeObjectURL(blobUrl), 60_000);
   }
 }
