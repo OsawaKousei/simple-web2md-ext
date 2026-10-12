@@ -80,7 +80,7 @@ export function convertToMarkdown(html?: string): ExtractedContent {
     } else {
       // Readabilityで抽出できない場合はフォールバック処理
       console.warn(
-        "Readability failed to extract content, falling back to body content"
+        "Readability failed to extract content, falling back to body content",
       );
       return fallbackExtraction(turndownService);
     }
@@ -94,7 +94,7 @@ export function convertToMarkdown(html?: string): ExtractedContent {
  * Readabilityが失敗した場合のフォールバック処理
  */
 function fallbackExtraction(
-  turndownService: TurndownService
+  turndownService: TurndownService,
 ): ExtractedContent {
   // 不要な要素を除去
   const cleanHtml = document.body.innerHTML
@@ -106,7 +106,7 @@ function fallbackExtraction(
     .replace(/<aside\b[^<]*(?:(?!<\/aside>)<[^<]*)*<\/aside>/gi, "")
     .replace(
       /<div[^>]*class="[^"]*(?:sidebar|menu|navigation|advertisement|ads)[^"]*"[^>]*>.*?<\/div>/gi,
-      ""
+      "",
     );
 
   const markdown = turndownService.turndown(cleanHtml);

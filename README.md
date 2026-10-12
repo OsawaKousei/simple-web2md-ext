@@ -83,6 +83,9 @@ npm install
 npm run build
 ```
 
+ビルド開始前に ESLint、`npm audit`、Prettier の書式チェックが自動実行されます。
+個別に確認する場合は `npm run check`、書式を修正する場合は `npm run format:write` を実行してください。
+
 生成先: `release/simple-web2md-ext-chrome.zip` と `release/simple-web2md-ext-firefox.zip`。
 各 ZIP のルートに、そのブラウザ用の `manifest.json` が含まれます。
 片方だけ作成する場合は `npm run package:chrome` または `npm run package:firefox` を実行してください。

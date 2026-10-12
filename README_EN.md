@@ -83,6 +83,9 @@ npm install
 npm run build
 ```
 
+ESLint, `npm audit`, and Prettier checks run before each browser build.
+Run `npm run check` to check separately, or `npm run format:write` to apply formatting.
+
 Output: `release/simple-web2md-ext-chrome.zip` and `release/simple-web2md-ext-firefox.zip`.
 Each ZIP contains the browser-specific `manifest.json` at its root.
 To package one browser, run `npm run package:chrome` or `npm run package:firefox`.
