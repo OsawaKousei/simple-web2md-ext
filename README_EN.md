@@ -20,7 +20,7 @@ A browser extension that saves web pages as Markdown format with just one click.
 
 ## 🚀 Installation
 
-1. Download zip file from [GitHub Releases](https://github.com/OsawaKousei/simple-web2md-ext/releases/tag/v1.0)
+1. Download the ZIP for your browser from [GitHub Releases](https://github.com/OsawaKousei/simple-web2md-ext/releases/tag/v1.1)
 
 2. Extract the zip file
 
@@ -79,10 +79,12 @@ fnm use
 # Install dependencies
 npm install
 
-# Set the absolute path to the Chrome signing key in .env as CHROME_EXTENSION_PEM
+# Create a file for the Chrome signing key path
 cp .env.example .env
 
-# Create store-ready ZIP files for Chrome/Edge and Firefox
+# Set CHROME_EXTENSION_PEM in .env to the absolute path of your PEM file
+
+# Create distribution files for Chrome/Edge and Firefox
 npm run build
 ```
 
@@ -95,8 +97,7 @@ Git ignores `.env`. Keep the private key itself outside this repository.
 Each ZIP contains the browser-specific `manifest.json` at its root.
 To package one browser, run `npm run package:chrome` or `npm run package:firefox`.
 
-Publisher: **KUPAC LLC** / Contact: **dev@kupac.co.jp**.
-Set the publisher name and contact email in the Chrome Web Store and Firefox Add-ons developer profiles as well.
+Contact: **dev@kupac.co.jp**.
 
 ### Tech Stack
 

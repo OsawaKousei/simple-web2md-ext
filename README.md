@@ -20,7 +20,7 @@ _[English version](README_EN.md)_
 
 ## 🚀 インストール方法
 
-1. [GitHub リリースページ](https://github.com/OsawaKousei/simple-web2md-ext/releases/tag/v1.0)から zip ファイルをダウンロード
+1. [GitHub リリースページ](https://github.com/OsawaKousei/simple-web2md-ext/releases/tag/v1.1)からブラウザ用 ZIP をダウンロード
 
 2. zip ファイルを解凍
 
@@ -79,10 +79,12 @@ fnm use
 # 依存関係をインストール
 npm install
 
-# Chrome の署名鍵の絶対パスを .env の CHROME_EXTENSION_PEM に設定
+# Chrome の署名鍵の絶対パスを設定するためのファイルを作成
 cp .env.example .env
 
-# Chrome/Edge と Firefox のストア提出用 ZIP を作成
+# .env の CHROME_EXTENSION_PEM を実際の PEM ファイルの絶対パスに変更
+
+# Chrome/Edge と Firefox の配布用ファイルを作成
 npm run build
 ```
 
@@ -95,8 +97,7 @@ Chrome ビルド時には、`.env` の秘密鍵を使って `release/simple-web2
 各 ZIP のルートに、そのブラウザ用の `manifest.json` が含まれます。
 片方だけ作成する場合は `npm run package:chrome` または `npm run package:firefox` を実行してください。
 
-公開者: **KUPAC LLC** ／ 連絡先: **dev@kupac.co.jp**。
-Chrome Web Store と Firefox Add-ons の公開者名・連絡先メールアドレスは、各ストアの開発者プロフィールにも設定してください。
+問い合わせ先: **dev@kupac.co.jp**。
 
 ### 技術スタック
 
