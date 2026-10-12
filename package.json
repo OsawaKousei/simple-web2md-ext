@@ -22,7 +22,7 @@
     "name": "n622",
     "email": "n622jwith@gmail.com"
   },
-  "license": "ISC",
+  "license": "MIT",
   "type": "commonjs",
   "devDependencies": {
     "@eslint/js": "^10.0.1",

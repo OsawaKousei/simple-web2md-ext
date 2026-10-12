@@ -38,6 +38,8 @@ module.exports = (env = {}) => {
         patterns: [
           { from: "public/icons", to: "icons" },
           { from: `public/manifest.${browser}.json`, to: "manifest.json" },
+          { from: "LICENSE", to: "LICENSE", toType: "file" },
+          { from: "NOTICE.md", to: "NOTICE.md" },
         ],
       }),
     ],
