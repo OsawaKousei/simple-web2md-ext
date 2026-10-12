@@ -1,11 +1,4 @@
 import browser from "webextension-polyfill";
-import { downloadFile } from "./logic/file-downloader";
-
-// メッセージレスポンスの型定義
-interface MarkdownResponse {
-  title: string;
-  markdown: string;
-}
 
 // ツールバーアイコンがクリックされた時の処理
 browser.action.onClicked.addListener(async (tab) => {
@@ -21,16 +14,8 @@ browser.action.onClicked.addListener(async (tab) => {
       files: ["content.js"],
     });
 
-    // 2. Content Scriptにメッセージを送信し、応答を待つ
-    const response = (await browser.tabs.sendMessage(tab.id, {
-      command: "GET_MARKDOWN",
-    })) as MarkdownResponse;
-
-    if (response && response.markdown) {
-      // 3. 応答を受け取ったらダウンロード処理を実行
-      const safeTitle = response.title.replace(/[\\?%*:|"<>]/g, "-");
-      await downloadFile(`${safeTitle}.md`, response.markdown);
-    }
+    // 2. Content Scriptで変換と保存を行う
+    await browser.tabs.sendMessage(tab.id, { command: "SAVE_MARKDOWN" });
   } catch (error) {
     // ページによってはスクリプトを注入できない場合のエラーハンドリング
     console.error("処理中にエラーが発生しました:", error);

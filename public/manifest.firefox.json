@@ -3,7 +3,7 @@
   "name": "Web to Markdown",
   "version": "1.0",
   "description": "クリック一つでウェブページをMarkdown形式で保存します。",
-  "permissions": ["activeTab", "scripting", "downloads"],
+  "permissions": ["activeTab", "scripting"],
   "background": {
     "scripts": ["background.js"]
   },
