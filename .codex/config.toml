@@ -1,0 +1,13 @@
+#:schema https://developers.openai.com/codex/config-schema.json
+
+[mcp_servers.chrome-devtools]
+command = "/home/kousei/.local/share/fnm/fnm"
+args = [
+    "exec",
+    "--using=24.19.0",
+    "npx",
+    "-y",
+    "chrome-devtools-mcp@latest",
+    "--isolated",
+    "--headless"
+]
