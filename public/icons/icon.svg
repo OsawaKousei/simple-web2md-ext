@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-labelledby="title">
+  <title id="title">Web to Markdown</title>
+  <rect width="128" height="128" rx="28" fill="#123047" />
+  <path d="M35 17h43l21 21v68a6 6 0 0 1-6 6H35a6 6 0 0 1-6-6V23a6 6 0 0 1 6-6Z" fill="#fff" />
+  <path d="M78 17v17a5 5 0 0 0 5 5h16Z" fill="#bbede0" />
+  <path d="M42 51h34M42 61h23" fill="none" stroke="#879ca8" stroke-linecap="round" stroke-width="6" />
+  <path d="M45 80v17m0-17 9 11 9-11v17" fill="none" stroke="#123047" stroke-linecap="round" stroke-linejoin="round" stroke-width="6" />
+  <path d="M81 72v20m-8-8 8 8 8-8" fill="none" stroke="#00aa8d" stroke-linecap="round" stroke-linejoin="round" stroke-width="6" />
+</svg>

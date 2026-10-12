@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Web to Markdown — 変換例</title>
+    <style>
+      :root {
+        font-family:
+          -apple-system, BlinkMacSystemFont, "Hiragino Kaku Gothic ProN",
+          "Noto Sans JP", sans-serif;
+        color: #123047;
+        background: #e9f2f0;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+      }
+      main {
+        width: 1280px;
+        height: 800px;
+        margin: 0 auto;
+        padding: 46px 64px;
+        overflow: hidden;
+      }
+      header {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        margin-bottom: 26px;
+      }
+      header img {
+        width: 52px;
+        height: 52px;
+      }
+      .brand {
+        font-size: 18px;
+        font-weight: 800;
+        letter-spacing: 0.02em;
+      }
+      .eyebrow {
+        margin-left: auto;
+        color: #347467;
+        font-size: 15px;
+        font-weight: 700;
+      }
+      h1 {
+        margin: 0 0 9px;
+        font-size: 38px;
+        letter-spacing: -0.035em;
+      }
+      .lead {
+        margin: 0 0 31px;
+        color: #526b78;
+        font-size: 19px;
+      }
+      .panels {
+        display: grid;
+        grid-template-columns: 1fr 60px 1fr;
+        align-items: center;
+        gap: 14px;
+      }
+      .panel {
+        height: 420px;
+        background: #fff;
+        border: 1px solid #d3e4e1;
+        border-radius: 18px;
+        box-shadow: 0 14px 32px #12304713;
+        overflow: hidden;
+      }
+      .panel-label {
+        height: 53px;
+        padding: 16px 24px;
+        background: #f5f9f8;
+        border-bottom: 1px solid #e1ebe8;
+        font-size: 15px;
+        font-weight: 700;
+      }
+      .article {
+        padding: 27px 32px;
+      }
+      .article .tag {
+        display: inline-block;
+        padding: 4px 9px;
+        border-radius: 5px;
+        background: #ddf5ee;
+        color: #087d69;
+        font-size: 12px;
+        font-weight: 700;
+      }
+      .article h2 {
+        margin: 18px 0 18px;
+        font-size: 28px;
+      }
+      .article p {
+        color: #425967;
+        font-size: 17px;
+        line-height: 1.85;
+      }
+      .article a {
+        color: #00866f;
+        text-decoration: underline;
+      }
+      .article .url {
+        margin-top: 24px;
+        color: #95a6aa;
+        font-size: 13px;
+      }
+      .arrow {
+        color: #00a889;
+        font-size: 48px;
+        text-align: center;
+        font-weight: 700;
+      }
+      pre {
+        margin: 0;
+        padding: 28px 29px;
+        color: #dceae8;
+        background: #123047;
+        height: 367px;
+        white-space: pre-wrap;
+        font:
+          16px/1.8 ui-monospace,
+          SFMono-Regular,
+          Menlo,
+          Consolas,
+          monospace;
+      }
+      .md-panel .panel-label {
+        color: #fff;
+        background: #173b53;
+        border-color: #173b53;
+      }
+      footer {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-top: 28px;
+        color: #355e5d;
+        font-size: 17px;
+        font-weight: 700;
+      }
+      footer .dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: #00aa8d;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <header>
+        <img src="../public/icons/icon_128.png" alt="" />
+        <div class="brand">Web to Markdown</div>
+        <div class="eyebrow">変換例</div>
+      </header>
+      <h1>ページを開いて、アイコンをクリック。</h1>
+      <p class="lead">
+        記事の本文をMarkdownに変換し、ファイルとして保存します。
+      </p>
+      <div class="panels">
+        <section class="panel">
+          <div class="panel-label">Webページ</div>
+          <div class="article">
+            <span class="tag">サンプル記事</span>
+            <h2>週末の読書メモ</h2>
+            <p>気になった記事を、あとで読み返せるように保存します。</p>
+            <p>
+              見出しや段落、<a href="https://example.com/notes">参考リンク</a
+              >もMarkdownに変換できます。
+            </p>
+            <div class="url">example.com/articles/reading-notes</div>
+          </div>
+        </section>
+        <div class="arrow" aria-hidden="true">→</div>
+        <section class="panel md-panel">
+          <div class="panel-label">週末の読書メモ.md</div>
+          <pre>
+# 週末の読書メモ
+
+気になった記事を、あとで読み返せるように保存します。
+
+見出しや段落、[参考リンク](https://example.com/notes)もMarkdownに変換できます。</pre>
+        </section>
+      </div>
+      <footer>
+        <span class="dot"></span>表示中のページをワンクリックで `.md` ファイルに
+      </footer>
+    </main>
+  </body>
+</html>
