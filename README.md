@@ -31,13 +31,13 @@ _[English version](README_EN.md)_
 - `chrome://extensions/` または `edge://extensions/` にアクセス
 - 「デベロッパーモード」を有効化
 - 「パッケージ化されていない拡張機能を読み込む」をクリック
-- 解凍した `dist` フォルダを選択
+- ZIP を解凍したフォルダを選択
 
 **Firefox の場合:**
 
 - `about:debugging#/runtime/this-firefox` にアクセス
 - 「一時的なアドオンを読み込む」をクリック
-- 解凍した `dist` フォルダ内の `manifest.json` を選択
+- ZIP を解凍したフォルダ内の `manifest.json` を選択
 
 ## 📖 使用方法
 
@@ -73,21 +73,30 @@ _[English version](README_EN.md)_
 git clone https://github.com/OsawaKousei/simple-web2md-ext.git
 cd simple-web2md-ext
 
+# 指定された Node.js バージョンに切り替え
+fnm use
+
 # 依存関係をインストール
 npm install
 
-# 本番用ビルド
-# chrome/edge
-npm run build:chrome
-# firefox
-npm run build:firefox
+# Chrome の署名鍵の絶対パスを .env の CHROME_EXTENSION_PEM に設定
+cp .env.example .env
 
-# 拡張機能パッケージの作成
-# chrome/edge
-npm run package:chrome
-# firefox
-npm run package:firefox
+# Chrome/Edge と Firefox のストア提出用 ZIP を作成
+npm run build
 ```
+
+ビルド開始前に ESLint、`npm audit`、Prettier の書式チェックが自動実行されます。
+個別に確認する場合は `npm run check`、書式を修正する場合は `npm run format:write` を実行してください。
+
+生成先: `release/simple-web2md-ext-chrome.zip` と `release/simple-web2md-ext-firefox.zip`。
+Chrome ビルド時には、`.env` の秘密鍵を使って `release/simple-web2md-ext-chrome.crx` も生成します。
+`.env` は Git の管理対象外です。署名鍵の中身はリポジトリに配置しないでください。
+各 ZIP のルートに、そのブラウザ用の `manifest.json` が含まれます。
+片方だけ作成する場合は `npm run package:chrome` または `npm run package:firefox` を実行してください。
+
+公開者: **KUPAC LLC** ／ 連絡先: **dev@kupac.co.jp**。
+Chrome Web Store と Firefox Add-ons の公開者名・連絡先メールアドレスは、各ストアの開発者プロフィールにも設定してください。
 
 ### 技術スタック
 

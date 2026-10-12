@@ -2,12 +2,21 @@ import browser from "webextension-polyfill";
 import { convertToMarkdown } from "./logic/markdown-converter";
 
 // メッセージリスナーが重複しないようにフラグで管理
-if (!(window as any).markdownConverterInitialized) {
-  (window as any).markdownConverterInitialized = true;
+const converterWindow = window as Window & {
+  markdownConverterInitialized?: boolean;
+};
 
-  browser.runtime.onMessage.addListener((request: any) => {
+if (!converterWindow.markdownConverterInitialized) {
+  converterWindow.markdownConverterInitialized = true;
+
+  browser.runtime.onMessage.addListener((request: unknown) => {
     // メッセージのコマンドを確認
-    if (request.command === "GET_MARKDOWN") {
+    if (
+      typeof request === "object" &&
+      request !== null &&
+      "command" in request &&
+      request.command === "GET_MARKDOWN"
+    ) {
       // HTMLをMarkdownに変換（Readabilityを使用）
       const result = convertToMarkdown();
 

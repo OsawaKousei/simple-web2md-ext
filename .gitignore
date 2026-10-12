@@ -3,9 +3,11 @@ node_modules/
 
 # settings
 .vscode/
+.env
 
 # build output
 dist/
+release/
 *zip
 
 # development files

@@ -7,6 +7,17 @@
   "background": {
     "scripts": ["background.js"]
   },
+  "developer": {
+    "name": "KUPAC LLC"
+  },
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "simple-web2md-ext@kupac.co.jp",
+      "data_collection_permissions": {
+        "required": ["none"]
+      }
+    }
+  },
   "action": {
     "default_title": "このページをMarkdownで保存",
     "default_icon": {
