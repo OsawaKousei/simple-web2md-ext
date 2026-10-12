@@ -79,6 +79,9 @@ fnm use
 # 依存関係をインストール
 npm install
 
+# Chrome の署名鍵の絶対パスを .env の CHROME_EXTENSION_PEM に設定
+cp .env.example .env
+
 # Chrome/Edge と Firefox のストア提出用 ZIP を作成
 npm run build
 ```
@@ -87,6 +90,8 @@ npm run build
 個別に確認する場合は `npm run check`、書式を修正する場合は `npm run format:write` を実行してください。
 
 生成先: `release/simple-web2md-ext-chrome.zip` と `release/simple-web2md-ext-firefox.zip`。
+Chrome ビルド時には、`.env` の秘密鍵を使って `release/simple-web2md-ext-chrome.crx` も生成します。
+`.env` は Git の管理対象外です。署名鍵の中身はリポジトリに配置しないでください。
 各 ZIP のルートに、そのブラウザ用の `manifest.json` が含まれます。
 片方だけ作成する場合は `npm run package:chrome` または `npm run package:firefox` を実行してください。
 

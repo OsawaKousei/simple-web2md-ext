@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "lint": "eslint src eslint.config.mjs webpack.config.js",
+    "lint": "eslint src scripts eslint.config.mjs webpack.config.js",
     "audit": "npm audit",
     "format": "prettier --check .",
     "format:write": "prettier --write .",
@@ -14,6 +14,7 @@
     "build:firefox": "webpack --mode=production --env browser=firefox",
     "prebuild:chrome": "npm run check",
     "build:chrome": "webpack --mode=production --env browser=chrome",
+    "postbuild:chrome": "node scripts/pack-chrome.cjs",
     "package:firefox": "npm run build:firefox && shx mkdir -p release && cd dist/firefox && bestzip ../../release/simple-web2md-ext-firefox.zip *",
     "package:chrome": "npm run build:chrome && shx mkdir -p release && cd dist/chrome && bestzip ../../release/simple-web2md-ext-chrome.zip *"
   },

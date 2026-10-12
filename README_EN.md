@@ -79,6 +79,9 @@ fnm use
 # Install dependencies
 npm install
 
+# Set the absolute path to the Chrome signing key in .env as CHROME_EXTENSION_PEM
+cp .env.example .env
+
 # Create store-ready ZIP files for Chrome/Edge and Firefox
 npm run build
 ```
@@ -87,6 +90,8 @@ ESLint, `npm audit`, and Prettier checks run before each browser build.
 Run `npm run check` to check separately, or `npm run format:write` to apply formatting.
 
 Output: `release/simple-web2md-ext-chrome.zip` and `release/simple-web2md-ext-firefox.zip`.
+The Chrome build also creates `release/simple-web2md-ext-chrome.crx` using the key path from `.env`.
+Git ignores `.env`. Keep the private key itself outside this repository.
 Each ZIP contains the browser-specific `manifest.json` at its root.
 To package one browser, run `npm run package:chrome` or `npm run package:firefox`.
 

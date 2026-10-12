@@ -7,12 +7,14 @@ export default defineConfig([
     ignores: ["dist/**", "release/**"],
   },
   {
-    files: ["eslint.config.mjs", "webpack.config.js"],
+    files: ["eslint.config.mjs", "webpack.config.js", "scripts/**/*.cjs"],
     extends: [js.configs.recommended],
     languageOptions: {
       globals: {
         __dirname: "readonly",
+        console: "readonly",
         module: "readonly",
+        process: "readonly",
         require: "readonly",
       },
     },
