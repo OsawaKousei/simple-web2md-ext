@@ -255,6 +255,66 @@ a:focus-visible {
 .features {
   background: var(--pale);
 }
+.download {
+  background: #fff;
+}
+.store-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-top: 42px;
+}
+.store-card {
+  min-height: 190px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 28px;
+  border: 1px solid var(--line);
+  border-radius: 13px;
+  background: var(--pale);
+  color: var(--muted);
+  font-size: 13px;
+}
+.store-card strong {
+  color: var(--ink);
+  font-size: 19px;
+}
+.store-card.available {
+  border-color: #a9bdfb;
+  background: #eef3ff;
+}
+.store-card.available:hover {
+  border-color: var(--blue);
+}
+.store-status {
+  color: var(--blue);
+  font-size: 11px;
+  font-weight: 700;
+}
+.store-card.upcoming .store-status {
+  color: var(--muted);
+}
+.store-action {
+  color: var(--blue);
+  font-weight: 700;
+}
+.source-links {
+  margin: 24px 0 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.8;
+}
+.source-links a {
+  color: var(--blue);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.source-links a + a {
+  margin-left: 12px;
+}
 .feature-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -330,6 +390,21 @@ a:focus-visible {
 }
 .how-grid li p {
   margin: 0;
+}
+.contact {
+  background: var(--pale);
+}
+.contact-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+}
+.contact .section-copy {
+  margin-bottom: 0;
+}
+.contact .button {
+  flex: none;
 }
 .cta {
   background: #1d3359;
@@ -417,12 +492,22 @@ a:focus-visible {
   .feature-grid {
     grid-template-columns: 1fr;
   }
+  .store-grid {
+    grid-template-columns: 1fr;
+  }
+  .store-card {
+    min-height: 150px;
+  }
   .feature-grid article {
     min-height: auto;
   }
   .how-grid {
     grid-template-columns: 1fr;
     gap: 30px;
+  }
+  .contact-inner {
+    align-items: flex-start;
+    flex-direction: column;
   }
   .section {
     padding: 75px 0;
@@ -433,17 +518,19 @@ a:focus-visible {
     width: min(100% - 32px, 1160px);
   }
   .site-header {
-    height: 70px;
+    height: auto;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 16px;
+    padding: 18px 0;
   }
   .brand {
     font-size: 13px;
   }
   .site-header nav {
-    gap: 14px;
+    flex-wrap: wrap;
+    gap: 12px 18px;
     font-size: 11px;
-  }
-  .site-header nav a:first-child {
-    display: none;
   }
   .hero h1 {
     font-size: 35px;

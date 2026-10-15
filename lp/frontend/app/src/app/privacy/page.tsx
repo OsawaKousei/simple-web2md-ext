@@ -99,6 +99,17 @@ export default function PrivacyPage() {
               <br />
               <a href="mailto:contact@kupac.co.jp">contact@kupac.co.jp</a>
             </address>
+            <p>
+              製品については
+              <a
+                href="https://forms.gle/vuYW9xgBGa9h6E956"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                お問い合わせフォーム
+              </a>
+              からもご連絡いただけます。
+            </p>
           </section>
           <section>
             <h2>8. ポリシーの変更</h2>

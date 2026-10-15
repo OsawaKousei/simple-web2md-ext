@@ -2,6 +2,12 @@ import Link from "next/link";
 import Image from "next/image";
 
 const releaseUrl = "https://github.com/OsawaKousei/simple-web2md-ext/releases";
+const repositoryUrl = "https://github.com/OsawaKousei/simple-web2md-ext";
+const chromeStoreUrl =
+  "https://chromewebstore.google.com/detail/web-to-markdown/kpobgdndklphhmkkjloefgmenidljpdh";
+const firefoxStoreUrl =
+  "https://addons.mozilla.org/en-US/firefox/addon/web-to-markdown-extension/";
+const contactFormUrl = "https://forms.gle/vuYW9xgBGa9h6E956";
 
 export default function Home() {
   return (
@@ -13,7 +19,9 @@ export default function Home() {
         </Link>
         <nav aria-label="メインナビゲーション">
           <a href="#features">特徴</a>
+          <a href="#download">入手先</a>
           <a href="#how-to">使い方</a>
+          <a href="#contact">お問い合わせ</a>
           <Link href="/privacy/">プライバシー</Link>
         </nav>
       </header>
@@ -31,20 +39,15 @@ export default function Home() {
               <code>.md</code> ファイルとして保存するブラウザ拡張機能です。
             </p>
             <div className="hero-actions">
-              <a
-                className="button primary"
-                href={releaseUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                GitHub Releases から入手 <span aria-hidden="true">↗</span>
+              <a className="button primary" href="#download">
+                公式ストアから入手 <span aria-hidden="true">↓</span>
               </a>
               <a className="button secondary" href="#how-to">
                 使い方を見る <span aria-hidden="true">↓</span>
               </a>
             </div>
             <p className="small-note">
-              無料・オープンソース。Chrome / Edge / Firefox に対応。
+              無料・オープンソース。Chrome / Firefox の公式ストアで公開中です。
             </p>
           </div>
           <div className="hero-preview">
@@ -92,6 +95,49 @@ export default function Home() {
                 </p>
               </div>
             </div>
+          </div>
+        </section>
+        <section id="download" className="section download">
+          <div className="wrap">
+            <p className="eyebrow">GET THE EXTENSION</p>
+            <h2>公式ストアから入手。</h2>
+            <div className="store-grid">
+              <a
+                className="store-card available"
+                href={chromeStoreUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span className="store-status">公開中</span>
+                <strong>Chrome ウェブストア</strong>
+                <span className="store-action">ストアで入手 ↗</span>
+              </a>
+              <a
+                className="store-card available"
+                href={firefoxStoreUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span className="store-status">公開中</span>
+                <strong>Firefox Browser Add-ons</strong>
+                <span className="store-action">ストアで入手 ↗</span>
+              </a>
+              <div className="store-card upcoming">
+                <span className="store-status">公開準備中</span>
+                <strong>Microsoft Edge アドオン</strong>
+                <span>Coming soon</span>
+              </div>
+            </div>
+            <p className="source-links">
+              手動で導入する場合は{" "}
+              <a href={releaseUrl} target="_blank" rel="noopener noreferrer">
+                GitHub Releases
+              </a>{" "}
+              をご覧ください。
+              <a href={repositoryUrl} target="_blank" rel="noopener noreferrer">
+                ソースコードを見る ↗
+              </a>
+            </p>
           </div>
         </section>
         <section id="features" className="features section">
@@ -143,8 +189,8 @@ export default function Home() {
                 <div>
                   <h3>拡張機能を追加</h3>
                   <p>
-                    GitHub
-                    Releasesからブラウザ用ZIPを入手し、解凍して読み込みます。
+                    Chrome または Firefox の公式ストアから追加します。Edge
+                    アドオンは公開準備中です。
                   </p>
                 </div>
               </li>
@@ -165,6 +211,25 @@ export default function Home() {
             </ol>
           </div>
         </section>
+        <section id="contact" className="section contact">
+          <div className="wrap contact-inner">
+            <div>
+              <p className="eyebrow">CONTACT</p>
+              <h2>お問い合わせ</h2>
+              <p className="section-copy">
+                ご質問や不具合のご報告は、お問い合わせフォームからお送りください。
+              </p>
+            </div>
+            <a
+              className="button secondary"
+              href={contactFormUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              お問い合わせフォームを開く <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+        </section>
         <section className="cta">
           <div className="wrap cta-inner">
             <div>
@@ -175,13 +240,8 @@ export default function Home() {
                 自分のファイルに。
               </h2>
             </div>
-            <a
-              className="button light"
-              href={releaseUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              拡張機能を入手 <span aria-hidden="true">↗</span>
+            <a className="button light" href="#download">
+              公式ストアから入手 <span aria-hidden="true">↑</span>
             </a>
           </div>
         </section>
@@ -190,11 +250,10 @@ export default function Home() {
         <span>© 2026 KUPAC LLC</span>
         <div>
           <Link href="/privacy/">プライバシーポリシー</Link>
-          <a
-            href="https://github.com/OsawaKousei/simple-web2md-ext"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <a href={contactFormUrl} target="_blank" rel="noopener noreferrer">
+            お問い合わせ ↗
+          </a>
+          <a href={repositoryUrl} target="_blank" rel="noopener noreferrer">
             GitHub ↗
           </a>
         </div>
