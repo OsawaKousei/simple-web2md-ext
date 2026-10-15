@@ -1,0 +1,13 @@
+FROM node:23.11.0-alpine
+
+WORKDIR /app
+
+RUN apk add bash
+
+# package.jsonとpackage-lock.jsonをコピー
+COPY ./app/package*.json ./
+
+# 依存関係をインストール
+RUN npm install
+
+CMD ["npm", "run", "dev"]

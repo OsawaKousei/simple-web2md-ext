@@ -1,0 +1,66 @@
+{
+  "Header": {
+    "company": "Next-Generation Physical AI Consortium",
+    "short": "XPAC",
+    "overview": "Overview",
+    "officers": "Officers",
+    "business": "Programs",
+    "contact": "Contact",
+    "lang": "Language"
+  },
+  "Hero": {
+    "badge": "Common Name: XPAC",
+    "message": "Open Physical AI for the Future.",
+    "sub": "We cultivate an open ecosystem where emerging researchers, developers, and practitioners can learn, collaborate, and build together.",
+    "primaryCta": "Explore Programs",
+    "secondaryCta": "Open Contact Form"
+  },
+  "About": {
+    "title": "Organization Overview",
+    "description": "The Next-Generation Physical AI Consortium (XPAC) creates inclusive spaces where young talent can engage in cross-disciplinary learning and real-world challenges.",
+    "nameLabel": "Registered Name (Japanese)",
+    "nameValue": "一般社団法人次世代フィジカルＡＩ育成機構",
+    "akaLabel": "Common Name",
+    "akaValue": "XPAC",
+    "foundedLabel": "Established",
+    "foundedValue": "May 1, 2026",
+    "addressLabel": "Head Office",
+    "addressValue": "Venture Incubation Center, Room 104, West Building, Kyoto University International Science Innovation Building, 36-1 Yoshida-Honmachi, Sakyo-ku, Kyoto 606-8317, Japan"
+  },
+  "Contents": {
+    "title": "Programs",
+    "description": "",
+    "communityTitle": "Community Operations",
+    "communityDesc": "Operating an open community that bridges practical insights and diverse backgrounds.",
+    "communityLink": "Visit Community Website",
+    "talentTitle": "Physical AI Talent Development",
+    "talentDesc": "Hands-on programs centered on young professionals to foster development and implementation capabilities.",
+    "innovationTitle": "Open Innovation and R&D Promotion",
+    "innovationDesc": "Driving collaborative R&D and new projects through industry-academia partnerships."
+  },
+  "Officers": {
+    "title": "Officers",
+    "description": "",
+    "representative": "Representative Director",
+    "director": "Director",
+    "osawa": "Kosei Osawa",
+    "osawaAffiliation": "Faculty of Economics, Kyoto University",
+    "yagi": "Satoshi Yagi",
+    "yagiAffiliation": "Specially Appointed Associate Professor, The University of Osaka\nInnovation Producer (Physical AI), Kyoto University",
+    "hiratuka": "Kaneyoshi Hiratsuka",
+    "hiratukaAffiliation": "Graduate School of Informatics, Kyoto University"
+  },
+  "Contact": {
+    "title": "Contact",
+    "description": "For collaboration inquiries, participation, speaking opportunities, and more, please contact us by email.",
+    "button": "Send Email",
+    "note": "Contact: contact@xpac.or.jp"
+  },
+  "Footer": {
+    "copyright": "© 2026 XPAC (Next-Generation Physical AI Consortium)"
+  },
+  "Metadata": {
+    "title": "XPAC | Next-Generation Physical AI Consortium",
+    "description": "Open Physical AI for the Future. XPAC promotes community operations, talent development, and open innovation."
+  }
+}

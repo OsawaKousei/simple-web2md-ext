@@ -1,0 +1,66 @@
+{
+  "Header": {
+    "company": "一般社団法人次世代フィジカルＡＩ育成機構",
+    "short": "XPAC",
+    "overview": "組織概要",
+    "officers": "役員",
+    "business": "事業内容",
+    "contact": "お問い合わせ",
+    "lang": "Language"
+  },
+  "Hero": {
+    "badge": "法人名通称：XPAC（クロスパック）",
+    "message": "開かれたフィジカルAIを、未来へ。",
+    "sub": "次世代の人材育成とオープンイノベーションを通じて、\n誰もが参加できるフィジカルAIエコシステムを育みます。",
+    "primaryCta": "事業内容を見る",
+    "secondaryCta": "お問い合わせフォームへ"
+  },
+  "About": {
+    "title": "組織概要",
+    "description": "一般社団法人次世代フィジカルＡＩ育成機構（XPAC）は、若手研究者・開発者・実践者が横断的に学び、挑戦できる開かれた場をつくります。",
+    "nameLabel": "法人名",
+    "nameValue": "一般社団法人次世代フィジカルＡＩ育成機構",
+    "akaLabel": "法人名通称",
+    "akaValue": "XPAC（クロスパック）",
+    "foundedLabel": "設立",
+    "foundedValue": "2026年5月1日",
+    "addressLabel": "本社所在地",
+    "addressValue": "〒606-8317 京都府京都市左京区吉田本町36番地1 京都大学国際科学イノベーション棟西館104 ベンチャーインキュベーションセンター内"
+  },
+  "Contents": {
+    "title": "事業内容",
+    "description": "",
+    "communityTitle": "コミュニティ運営",
+    "communityDesc": "現場の知見と多様な背景をつなぐオープンコミュニティを運営します。",
+    "communityLink": "コミュニティサイトを見る",
+    "talentTitle": "フィジカルAI人材育成",
+    "talentDesc": "若手中心の実践型プログラムで、開発力と社会実装力を育みます。",
+    "innovationTitle": "オープンイノベーション・研究開発の推進",
+    "innovationDesc": "産学連携を通じ、共創型の研究開発と新規プロジェクトを推進します。"
+  },
+  "Officers": {
+    "title": "役員",
+    "description": "",
+    "representative": "代表理事",
+    "director": "理事",
+    "osawa": "大澤衡正",
+    "osawaAffiliation": "京都大学経済学部",
+    "yagi": "八木聡明",
+    "yagiAffiliation": "大阪大学D3センター特任准教授\n京都大学成長戦略本部イノベーションプロデューサー（Physical AI領域）",
+    "hiratuka": "平塚謙良",
+    "hiratukaAffiliation": "京都大学情報学研究科"
+  },
+  "Contact": {
+    "title": "お問い合わせ",
+    "description": "連携のご相談、活動への参加、登壇・講演依頼などはメールでご連絡ください。",
+    "button": "メールを送る",
+    "note": "お問い合わせ先: contact@xpac.or.jp"
+  },
+  "Footer": {
+    "copyright": "© 2026 XPAC（一般社団法人次世代フィジカルＡＩ育成機構）"
+  },
+  "Metadata": {
+    "title": "XPAC | 一般社団法人次世代フィジカルＡＩ育成機構",
+    "description": "開かれたフィジカルAIを、未来へ。XPACはコミュニティ運営・人材育成・オープンイノベーションを推進します。"
+  }
+}
