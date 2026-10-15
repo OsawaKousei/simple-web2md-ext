@@ -1,0 +1,8 @@
+# Copy to terraform.tfvars (ignored by Git) and fill in the missing values.
+aws_profile                = "<your profile>"
+bucket_name                = "<your bucket>"
+public_domain              = "<your domain>"
+acm_certificate_arn        = "<your arn>"
+tags = {
+  Project = "web2md-lp"
+}

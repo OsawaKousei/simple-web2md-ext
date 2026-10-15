@@ -4,6 +4,8 @@ _[日本語版はこちら / Japanese version](README.md)_
 
 A browser extension that saves web pages as Markdown format with just one click.
 
+Learn more on the [product page](https://web2md.prj.kupac.co.jp/).
+
 ## 🌟 Features
 
 - **One-Click Conversion**: Save current page as Markdown format by simply clicking the toolbar icon
@@ -19,6 +21,15 @@ A browser extension that saves web pages as Markdown format with just one click.
 - Mozilla Firefox
 
 ## 🚀 Installation
+
+### Install from an official store
+
+- **Google Chrome**: Open the [Chrome Web Store](https://chromewebstore.google.com/detail/web-to-markdown/kpobgdndklphhmkkjloefgmenidljpdh) and click "Add to Chrome".
+- **Mozilla Firefox**: Open [Firefox Browser Add-ons](https://addons.mozilla.org/en-US/firefox/addon/web-to-markdown-extension/) and click "Add to Firefox".
+
+The Microsoft Edge Add-ons listing is coming soon. You can install manually in Edge using the steps below.
+
+### Install manually
 
 1. Download the ZIP for your browser from [GitHub Releases](https://github.com/OsawaKousei/simple-web2md-ext/releases/tag/v1.1)
 
@@ -66,7 +77,7 @@ A browser extension that saves web pages as Markdown format with just one click.
 
 ## 📝 Development
 
-For Mozilla source submission and reproducible build instructions, see [MOZILLA_REVIEW.md](MOZILLA_REVIEW.md).
+For Mozilla source submission and reproducible build instructions, see [MOZILLA_REVIEW.md](docs/MOZILLA_REVIEW.md).
 
 ### Development Environment Setup
 

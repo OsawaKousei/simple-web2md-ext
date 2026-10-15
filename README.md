@@ -4,6 +4,8 @@ _[English version](README_EN.md)_
 
 クリック一つでウェブページを Markdown 形式で保存できるブラウザ拡張機能です。
 
+詳しい紹介は[プロダクトページ](https://web2md.prj.kupac.co.jp/)をご覧ください。
+
 ## 🌟 特徴
 
 - **ワンクリック変換**: ツールバーアイコンをクリックするだけで、現在のページを Markdown 形式で保存
@@ -19,6 +21,15 @@ _[English version](README_EN.md)_
 - Mozilla Firefox
 
 ## 🚀 インストール方法
+
+### 公式ストアから入手
+
+- **Google Chrome**: [Chrome ウェブストア](https://chromewebstore.google.com/detail/web-to-markdown/kpobgdndklphhmkkjloefgmenidljpdh)で「Chrome に追加」をクリック
+- **Mozilla Firefox**: [Firefox Browser Add-ons](https://addons.mozilla.org/en-US/firefox/addon/web-to-markdown-extension/)で「Firefox へ追加」をクリック
+
+Microsoft Edge アドオンは公開準備中です。Edge では以下の手順で手動インストールできます。
+
+### 手動でインストール
 
 1. [GitHub リリースページ](https://github.com/OsawaKousei/simple-web2md-ext/releases/tag/v1.1)からブラウザ用 ZIP をダウンロード
 
@@ -66,7 +77,7 @@ _[English version](README_EN.md)_
 
 ## 📝 開発
 
-Mozilla 審査用ソースコードの提出と再現ビルドの手順は [MOZILLA_REVIEW.md](MOZILLA_REVIEW.md) を参照してください。
+Mozilla 審査用ソースコードの提出と再現ビルドの手順は [MOZILLA_REVIEW.md](docs/MOZILLA_REVIEW.md) を参照してください。
 
 ### 開発環境のセットアップ
 

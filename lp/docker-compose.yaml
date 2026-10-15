@@ -1,0 +1,17 @@
+name: web2md-lp
+
+services:
+  frontend:
+    container_name: web2md-lp
+    image: web2md-lp-dev
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile.dev
+    volumes:
+      - ./frontend/app:/app
+      - node_modules:/app/node_modules
+    ports:
+      - "3000:3000"
+
+volumes:
+  node_modules:
