@@ -1,113 +1,20 @@
-# AWS Lambda + API Gateway Terraform構成
+# Web to Markdown LP インフラ
 
-このレポジトリは、Terraformを使用してAWS Lambda関数とHTTP API Gatewayを構築するためのインフラストラクチャ構成です。
+Next.js の静的エクスポートを、非公開 S3 バケットと CloudFront OAC で公開します。公開 URL は `https://web2md.prj.kupac.co.jp/` です。Route 53 の hosted zone ID を指定すると A/AAAA alias レコードも作成します。指定しない場合、DNS 設定は別途必要です。
 
-## 概要
+## init 前の準備
 
-以下のAWSリソースが作成されます：
-- AWS Lambda関数（Node.js 22.x）
-- HTTP API Gateway
-- IAMロール及びポリシー
-- Lambda関数とAPI Gatewayの統合
+1. `backend.hcl.example` を `backend.hcl` にコピーし、state 用 S3 バケット、キー、リージョン、AWS profile を確認する。既存の state バケット名を引き継ぎ、キーは LP 専用にしています。バケットの存在と利用権限は未確認です。
+2. `terraform.tfvars.example` を `terraform.tfvars` にコピーする。S3 バケット名が未使用であることを確認し、`acm_certificate_arn` に **us-east-1** の `web2md.prj.kupac.co.jp` を含む証明書 ARN を設定する。Route 53 で DNS も管理する場合は `route53_zone_id` を設定する。
+3. AWS 認証を設定する。`backend.hcl` と `terraform.tfvars` は Git 管理対象外です。
 
-## 前提条件
-
-- AWS CLI がインストールされていること
-- Terraform がインストールされていること（v1.0以上推奨）
-- AWS SSOまたはIAMユーザーでの認証が設定済みであること
-
-## セットアップ手順
-
-### 1. レポジトリのクローン
+この準備ができた後に、以下を実行します（この作業では未実行）。
 
 ```bash
-git clone <repository-url>
-cd tf-aws-api-endpoint
-```
-
-### 2. AWS認証の設定
-
-AWS SSOを使用する場合：
-```bash
-export AWS_PROFILE="your-sso-profile-name"
-```
-
-### 3. Terraformの初期化
-
-```bash
-terraform init
-```
-
-### 4. 設定の確認
-
-作成されるリソースを確認します：
-```bash
+cd lp/infra
+terraform init -backend-config=backend.hcl
 terraform plan
-```
-
-### 5. リソースのデプロイ
-
-```bash
 terraform apply
 ```
 
-確認プロンプトで `yes` を入力してデプロイを実行します。
-
-### 6. API エンドポイントの確認
-
-デプロイ完了後、出力されるAPI Gateway URLを使用してテストできます：
-```bash
-curl <api-gateway-url>
-```
-
-## カスタマイズ
-
-### リソース名の変更
-
-`main.tf`の変数を編集してリソース名をカスタマイズできます：
-
-```hcl
-variable "lambda_function_name" {
-  default = "your-lambda-function-name"
-}
-
-variable "api_gateway_name" {
-  default = "your-api-gateway-name"
-}
-```
-
-または、コマンドライン引数で指定：
-```bash
-terraform apply -var="lambda_function_name=my-custom-lambda"
-```
-
-### Lambda関数コードの変更
-
-`main.tf`の`data "archive_file" "lambda_zip"`セクションでLambda関数のコードを変更できます。
-
-## クリーンアップ
-
-作成したリソースを削除するには：
-```bash
-terraform destroy
-```
-
-## トラブルシューティング
-
-### よくある問題
-
-1. **権限エラー**
-   - AWS認証情報が正しく設定されているか確認
-   - IAMユーザー/ロールに必要な権限があるか確認
-
-2. **リソース名の競合**
-   - Lambda関数名やAPI Gateway名が既存のものと重複していないか確認
-   - 変数を使用して異なる名前を指定
-
-3. **リージョンの問題**
-   - `main.tf`でリージョンが正しく設定されているか確認（デフォルト: ap-northeast-1）
-
-## 出力
-
-デプロイ後、以下の情報が出力されます：
-- `api_gateway_url`: API GatewayのエンドポイントURL
+サイトのビルドとアップロードは `lp/build.sh`、`lp/deploy.sh` を使用します。`deploy.sh` は state の出力からバケット名と CloudFront ID を読みます。

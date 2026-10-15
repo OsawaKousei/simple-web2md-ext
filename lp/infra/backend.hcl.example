@@ -1,0 +1,5 @@
+# Copy to backend.hcl (ignored by Git) before terraform init.
+bucket  = "<your bucket>"
+key     = "<your key>"
+region  = "<your region>"
+profile = "<your profile>"

@@ -1,27 +1,18 @@
-#!/bin/bash
+#!/usr/bin/env bash
+set -euo pipefail
 
-set -e
+ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+SITE_CANONICAL_URL="${NEXT_PUBLIC_BASE_URL:-https://web2md.prj.kupac.co.jp}"
+IMAGE_NAME="web2md-lp-build"
 
-echo "🏗️  Starting website build process..."
-
-# 古いビルドを削除
-echo "🗑️  Removing old build artifacts..."
-rm -rf ./dist
-
-# ビルド用コンテナを作成
-echo "🐳 Building Docker container..."
-SITE_CANONICAL_URL="${NEXT_PUBLIC_BASE_URL:-https://www.kupac.co.jp}"
+rm -rf "$ROOT_DIR/dist"
 docker build \
   --build-arg NEXT_PUBLIC_BASE_URL="$SITE_CANONICAL_URL" \
-  -f frontend/Dockerfile \
-  -t website-build \
-  ./frontend
+  -f "$ROOT_DIR/frontend/Dockerfile" \
+  -t "$IMAGE_NAME" \
+  "$ROOT_DIR/frontend"
 
-# 静的ファイルをローカルにコピー
-echo "📦 Copying static files to ./dist..."
-docker create --name temp-container website-build
-docker cp temp-container:/app/out ./dist
-docker rm temp-container
-
-echo "✅ Build completed successfully!"
-echo "📁 Static files are available in ./dist"
+CONTAINER_ID="$(docker create "$IMAGE_NAME")"
+trap 'docker rm -f "$CONTAINER_ID" >/dev/null 2>&1 || true' EXIT
+docker cp "$CONTAINER_ID:/app/out" "$ROOT_DIR/dist"
+echo "Static files are available in $ROOT_DIR/dist"

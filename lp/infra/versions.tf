@@ -4,14 +4,10 @@ terraform {
   required_providers {
     aws = {
       source  = "hashicorp/aws"
-      version = ">= 6.0"
+      version = "~> 6.0"
     }
   }
 
-  backend "s3" {
-    bucket  = "terraform-state-bucket-103492189525-ap-northeast-1-an"
-    key     = "webpage/kupacllc-homepage/terraform.tfstate"
-    region  = "ap-northeast-1"
-    profile = "kupacllc"
-  }
+  # terraform init -backend-config=backend.hcl で設定する。
+  backend "s3" {}
 }

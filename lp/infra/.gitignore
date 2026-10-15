@@ -18,4 +18,5 @@ override.tf.json
 terraform.rc
 
 *.zip
-.vscode
+.vscode/
+backend.hcl

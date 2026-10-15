@@ -1,5 +1,5 @@
 {
-  "name": "kupac-home-page",
+  "name": "web2md-lp",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -7,7 +7,7 @@
     "build": "next build",
     "postbuild": "next-sitemap",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "eslint src next.config.ts next-sitemap.config.js"
   },
   "dependencies": {
     "@radix-ui/react-slot": "^1.2.3",
