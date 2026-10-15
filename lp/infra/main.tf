@@ -1,8 +1,3 @@
-provider "aws" {
-  region  = "ap-northeast-1"
-  profile = var.aws_profile
-}
-
 locals {
   use_custom_domain = var.public_domain != null && var.acm_certificate_arn != null
 }
@@ -88,10 +83,41 @@ function handler(event) {
     var request = event.request;
     var uri = request.uri;
 
+    if (uri === '/') {
+        return {
+            statusCode: 301,
+            statusDescription: 'Moved Permanently',
+            headers: {
+                location: { value: '/ja/' },
+                'cache-control': { value: 'public, max-age=3600' }
+            }
+        };
+    }
+
+    if (uri.endsWith('/index.html')) {
+        return {
+            statusCode: 301,
+            statusDescription: 'Moved Permanently',
+            headers: {
+                location: { value: uri.slice(0, -10) },
+                'cache-control': { value: 'public, max-age=3600' }
+            }
+        };
+    }
+
+    if (!uri.endsWith('/') && !uri.includes('.')) {
+        return {
+            statusCode: 301,
+            statusDescription: 'Moved Permanently',
+            headers: {
+                location: { value: uri + '/' },
+                'cache-control': { value: 'public, max-age=3600' }
+            }
+        };
+    }
+
     if (uri.endsWith('/')) {
         request.uri += 'index.html';
-    } else if (!uri.includes('.')) {
-        request.uri += '/index.html';
     }
 
     return request;
@@ -205,6 +231,11 @@ output "cloudfront_distribution_id" {
   value       = aws_cloudfront_distribution.website_distribution.id
 }
 
+output "website_bucket_name" {
+  description = "S3 bucket name for website files"
+  value       = aws_s3_bucket.website_bucket.bucket
+}
+
 # Route53 は手動設定。公開ドメインを使う場合は、この値に対して CNAME/ALIAS を設定する。
 output "dns_target_for_manual_route53" {
   description = "DNS target to point your public domain to (configure Route53 manually)"
@@ -215,9 +246,4 @@ output "dns_target_for_manual_route53" {
 output "s3_website_endpoint" {
   description = "S3 bucket website endpoint"
   value       = aws_s3_bucket_website_configuration.website_bucket_config.website_endpoint
-}
-
-output "website_bucket_name" {
-  description = "S3 bucket name for website content"
-  value       = aws_s3_bucket.website_bucket.id
 }

@@ -1,26 +1,26 @@
-import { redirect } from 'next/navigation';
-import type { Metadata } from 'next';
-
-const domain = process.env.NEXT_PUBLIC_SITE_URL || process.env.SITE_URL || 'https://www.xpac.or.jp';
+import type { Metadata } from "next";
+import { COMPANY_NAME_JA, SITE_ROOT } from "@/app/_config/site";
 
 export const metadata: Metadata = {
-  metadataBase: new URL(domain),
-  title: 'XPAC | 一般社団法人次世代フィジカルAI育成機構',
-  description: 'XPAC（一般社団法人次世代フィジカルAI育成機構）の公式サイトです。',
-  alternates: {
-    canonical: `${domain}/ja/`,
-    languages: {
-      ja: `${domain}/ja/`,
-      en: `${domain}/en/`,
-      'x-default': `${domain}/ja/`,
-    },
-  },
+  title: COMPANY_NAME_JA,
   robots: {
-    index: true,
+    index: false,
     follow: true,
+  },
+  alternates: {
+    canonical: `${SITE_ROOT}/ja/`,
   },
 };
 
 export default function RootPage() {
-  redirect('/ja/');
+  return (
+    <html lang="ja">
+      <head>
+        <meta httpEquiv="refresh" content="0; url=/ja/" />
+      </head>
+      <body>
+        <p><a href="/ja/">{COMPANY_NAME_JA}の公式サイトへ移動</a></p>
+      </body>
+    </html>
+  );
 }

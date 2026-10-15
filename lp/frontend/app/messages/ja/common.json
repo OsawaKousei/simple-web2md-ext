@@ -1,0 +1,23 @@
+{
+  "Header": {
+    "homeLabel": "合同会社KUPAC 公式サイト ホーム",
+    "navLabel": "メインナビゲーション",
+    "languageLabel": "言語を選択",
+    "openMenu": "メニューを開く",
+    "closeMenu": "メニューを閉じる",
+    "about": "会社概要",
+    "services": "事業内容",
+    "contact": "お問い合わせ",
+    "companyName": "合同会社KUPAC",
+    "logoAlt": "合同会社KUPAC ロゴ"
+  },
+  "Footer": {
+    "privacy": "プライバシーに関する文書",
+    "copyright": "© 2026 合同会社KUPAC",
+    "companyName": "合同会社KUPAC"
+  },
+  "Metadata": {
+    "title": "合同会社KUPAC",
+    "description": "合同会社KUPACは、AI × ロボティクス領域における確かな実装力でビジネスの課題を解決します。"
+  }
+}

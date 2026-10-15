@@ -1,8 +1,8 @@
-FROM node:23.11.0-alpine
+FROM node:20-alpine AS build
 
 WORKDIR /app
 
-RUN apk add bash
+RUN apk add --no-cache bash
 
 # package.jsonとpackage-lock.jsonをコピー
 COPY ./app/package*.json ./

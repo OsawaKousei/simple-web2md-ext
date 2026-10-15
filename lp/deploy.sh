@@ -48,6 +48,12 @@ echo "Loading deployment parameters from Terraform state"
 DISTRIBUTION_ID="$(terraform -chdir="$INFRA_DIR" output -raw cloudfront_distribution_id)"
 BUCKET_NAME="$(terraform -chdir="$INFRA_DIR" output -raw website_bucket_name)"
 
+if [[ -z "$DISTRIBUTION_ID" || -z "$BUCKET_NAME" ]]; then
+  echo "Error: failed to read Terraform outputs."
+  echo "Run 'terraform -chdir=infra apply' and try again."
+  exit 1
+fi
+
 echo "[2/3] Syncing dist to s3://$BUCKET_NAME"
 aws s3 sync "$ROOT_DIR/dist" "s3://$BUCKET_NAME" --delete
 

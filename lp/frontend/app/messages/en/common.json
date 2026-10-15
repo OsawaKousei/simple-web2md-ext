@@ -1,0 +1,23 @@
+{
+  "Header": {
+    "homeLabel": "KUPAC LLC Home",
+    "navLabel": "Main navigation",
+    "languageLabel": "Select language",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "about": "Company",
+    "services": "Services",
+    "contact": "Contact",
+    "companyName": "KUPAC LLC",
+    "logoAlt": "KUPAC LLC logo"
+  },
+  "Footer": {
+    "privacy": "Privacy policies (Japanese only)",
+    "copyright": "© 2026 KUPAC LLC",
+    "companyName": "KUPAC LLC"
+  },
+  "Metadata": {
+    "title": "KUPAC LLC | Official Corporate Website",
+    "description": "KUPAC LLC solves business challenges with proven implementation expertise in AI and robotics."
+  }
+}

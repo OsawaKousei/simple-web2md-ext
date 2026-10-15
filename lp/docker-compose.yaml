@@ -1,19 +1,19 @@
 volumes:
-  xpac-home-page-node-modules:
+  kupacllc-home-page-node-modules:
 
 services:
-  xpac-home-page-frontend:
+  kupacllc-home-page-frontend:
     build:
       context: ./frontend
       dockerfile: Dockerfile.dev
     volumes:
       - ./frontend/app:/app
-      - xpac-home-page-node-modules:/app/node_modules
+      - kupacllc-home-page-node-modules:/app/node_modules
     ports:
       - "3000:3000"
     networks:
-      - xpac-home-page-app-network
+      - kupacllc-home-page-app-network
 
 networks:
-  xpac-home-page-app-network:
+  kupacllc-home-page-app-network:
     driver: bridge

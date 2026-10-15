@@ -10,7 +10,12 @@ rm -rf ./dist
 
 # ビルド用コンテナを作成
 echo "🐳 Building Docker container..."
-docker build -f frontend/Dockerfile -t website-build ./frontend
+SITE_CANONICAL_URL="${NEXT_PUBLIC_BASE_URL:-https://www.kupac.co.jp}"
+docker build \
+  --build-arg NEXT_PUBLIC_BASE_URL="$SITE_CANONICAL_URL" \
+  -f frontend/Dockerfile \
+  -t website-build \
+  ./frontend
 
 # 静的ファイルをローカルにコピー
 echo "📦 Copying static files to ./dist..."

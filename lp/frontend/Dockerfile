@@ -1,5 +1,8 @@
 # Build stage
-FROM node:23.11.0-alpine AS builder
+FROM node:20-alpine AS build
+
+ARG NEXT_PUBLIC_BASE_URL=https://www.kupac.co.jp
+ENV NEXT_PUBLIC_BASE_URL=$NEXT_PUBLIC_BASE_URL
 
 WORKDIR /app
 
