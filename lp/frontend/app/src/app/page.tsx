@@ -7,6 +7,8 @@ const chromeStoreUrl =
   "https://chromewebstore.google.com/detail/web-to-markdown/kpobgdndklphhmkkjloefgmenidljpdh";
 const firefoxStoreUrl =
   "https://addons.mozilla.org/en-US/firefox/addon/web-to-markdown-extension/";
+const edgeStoreUrl =
+  "https://microsoftedge.microsoft.com/addons/detail/web-to-markdown/fnadejhpnenfeejgcbfcoiepbiimpjon";
 const contactFormUrl = "https://forms.gle/vuYW9xgBGa9h6E956";
 
 export default function Home() {
@@ -47,7 +49,7 @@ export default function Home() {
               </a>
             </div>
             <p className="small-note">
-              無料・オープンソース。Chrome / Firefox の公式ストアで公開中です。
+              無料・オープンソース。Chrome / Edge / Firefox の公式ストアで公開中です。
             </p>
           </div>
           <div className="hero-preview">
@@ -122,9 +124,19 @@ export default function Home() {
                 <strong>Firefox Browser Add-ons</strong>
                 <span className="store-action">ストアで入手 ↗</span>
               </a>
-              <div className="store-card upcoming">
-                <span className="store-status">公開準備中</span>
+              <a
+                className="store-card available"
+                href={edgeStoreUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span className="store-status">公開中</span>
                 <strong>Microsoft Edge アドオン</strong>
+                <span className="store-action">ストアで入手 ↗</span>
+              </a>
+              <div className="store-card upcoming">
+                <span className="store-status">対応予定</span>
+                <strong>Safari</strong>
                 <span>Coming soon</span>
               </div>
             </div>
@@ -189,8 +201,8 @@ export default function Home() {
                 <div>
                   <h3>拡張機能を追加</h3>
                   <p>
-                    Chrome または Firefox の公式ストアから追加します。Edge
-                    アドオンは公開準備中です。
+                    Chrome / Edge / Firefox の公式ストアから追加します。Safari
+                    は今後対応予定です。
                   </p>
                 </div>
               </li>
