@@ -7,6 +7,7 @@ import json
 import os
 from pathlib import Path
 import plistlib
+import re
 import secrets
 import shlex
 import shutil
@@ -117,6 +118,16 @@ def profiles_for(mode, config, certificate):
 
 def configure_project(project, mode, config, profiles, version):
     """Patch the generated project instead of retaining machine-specific generated files."""
+    # The packager's Swift constant keeps its default ID even when target IDs change.
+    # Both Safari state queries and the preferences button must use the signed ID.
+    controller = project.parent / "Shared (App)" / "ViewController.swift"
+    source, replacements = re.subn(
+        r'(?m)^(let extensionBundleIdentifier\s*=\s*)"[^"\r\n]+"[ \t]*$',
+        lambda match: match[1] + json.dumps(config["EXTENSION_ID"]),
+        controller.read_text())
+    if replacements != 1:
+        raise ValueError("Expected exactly one generated host extensionBundleIdentifier declaration")
+    controller.write_text(source)
     pbxproj = project / "project.pbxproj"
     model = json.loads(run(["plutil", "-convert", "json", "-o", "-", pbxproj], capture=True))
     objects = model["objects"]

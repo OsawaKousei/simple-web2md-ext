@@ -6,12 +6,14 @@ import io
 import json
 import os
 from pathlib import Path
+import plistlib
 import tarfile
 import tempfile
 import unittest
 from unittest.mock import patch
 
 import release
+from build import configure_project
 
 from common import (configuration, export_options, read_env, safe_extract, validate_profile,
                     verify_artifacts, write_metadata)
@@ -60,6 +62,50 @@ class WorkflowTests(unittest.TestCase):
             else:
                 self.assertEqual(set(options["provisioningProfiles"]),
                                  {self.config["BUNDLE_ID"], self.config["EXTENSION_ID"]})
+
+    def test_host_and_signed_targets_share_configured_extension_id(self):
+        config = dict(self.config, EXTENSION_ID="com.example.app.SafariExtension", build_number="2495.1.0")
+        profiles = {"app": {"Name": "Parent"}, "extension": {"Name": "Extension"}}
+        for mode in ["macos", "ios", "github"]:
+            with self.subTest(mode=mode), tempfile.TemporaryDirectory() as directory:
+                root = Path(directory)
+                project = root / "App.xcodeproj"
+                project.mkdir()
+                controller = root / "Shared (App)/ViewController.swift"
+                controller.parent.mkdir()
+                controller.write_text('let extensionBundleIdentifier = "com.example.app.Extension"\n'
+                                      'getStateOfSafariExtension(withIdentifier: extensionBundleIdentifier)\n'
+                                      'showPreferencesForExtension(withIdentifier: extensionBundleIdentifier)\n')
+                objects = {}
+                for platform, sdk in [("macos", "macosx"), ("ios", "iphoneos")]:
+                    for role, product in [("app", "application"), ("extension", "app-extension")]:
+                        key = f"{platform}-{role}"
+                        objects[key] = {"isa": "PBXNativeTarget", "name": key,
+                                        "productType": f"com.apple.product-type.{product}",
+                                        "buildConfigurationList": key + "-list"}
+                        objects[key + "-list"] = {"buildConfigurations": [key + "-release"]}
+                        objects[key + "-release"] = {"buildSettings": {"SDKROOT": sdk}}
+                with patch("build.run", return_value=json.dumps({"objects": objects}).encode()):
+                    scheme = configure_project(project, mode, config, profiles, "1.0.0")
+                self.assertEqual(scheme, ("ios" if mode == "ios" else "macos") + "-app")
+                self.assertIn('let extensionBundleIdentifier = "com.example.app.SafariExtension"', controller.read_text())
+                self.assertNotIn('"com.example.app.Extension"', controller.read_text())
+                updated = plistlib.loads((project / "project.pbxproj").read_bytes())["objects"]
+                for platform in ["macos", "ios"]:
+                    self.assertEqual(updated[f"{platform}-extension-release"]["buildSettings"]["PRODUCT_BUNDLE_IDENTIFIER"],
+                                     config["EXTENSION_ID"])
+
+    def test_changed_host_template_stops_build(self):
+        declaration = 'let extensionBundleIdentifier = "com.example.app.Extension"\n'
+        for source in ["// declaration removed\n", declaration * 2]:
+            with self.subTest(source=source), tempfile.TemporaryDirectory() as directory:
+                root = Path(directory)
+                controller = root / "Shared (App)/ViewController.swift"
+                controller.parent.mkdir()
+                controller.write_text(source)
+                with self.assertRaisesRegex(ValueError, "exactly one generated host"):
+                    configure_project(root / "App.xcodeproj", "github", self.config, {}, "1.0.0")
+                self.assertEqual(controller.read_text(), source)
 
     def test_env_is_literal_and_requires_private_permissions(self):
         with tempfile.TemporaryDirectory() as directory:

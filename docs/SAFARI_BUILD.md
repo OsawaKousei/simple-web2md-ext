@@ -33,6 +33,11 @@ Mac 上で npm ci、WebExtension ビルド、Xcode プロジェクト生成、�
 案内画面を使用し、Bundle ID、バージョン、署名、最低 OS をスクリプトで設定します。
 生成プロジェクトを手動編集しても次回ビルドには引き継がれません。
 
+ホストアプリの `ViewController.swift` に生成される `extensionBundleIdentifier` も、
+署名対象と同じ `WEB2MD_EXTENSION_ID` に設定します。これにより Mac アプリの
+拡張状態の取得と Safari 設定画面への誘導が、埋め込まれた拡張を参照します。
+生成テンプレートが変わり、この定義を一意に更新できなくなった場合はビルドを停止します。
+
 最低 OS は macOS 13 / iOS 16、Mac の実行ファイルは arm64 / x86_64 の Universal Binary です。
 Node.js は `app/.node-version` に合わせて fnm で用意します。
 `DEVELOPER_DIR` の既定値は `/Applications/Xcode.app/Contents/Developer` です。
