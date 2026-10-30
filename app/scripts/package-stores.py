@@ -5,6 +5,8 @@ import hashlib
 import json
 from pathlib import Path
 import re
+import shutil
+import struct
 import zipfile
 
 APP = Path(__file__).resolve().parents[1]
@@ -50,6 +52,20 @@ def main():
         package = output / f"simple-web2md-ext-{version}-{label}.zip"
         archive(package, [(str(path.relative_to(dist)), path) for path in files_under(dist)])
         packages.append(package)
+
+    # Verified CRX Uploads requires the existing developer signing key for CWS.
+    # Reject a stale CRX even if its filename happens to match the current version.
+    signed = APP / "release/simple-web2md-ext-chrome.crx"
+    header = signed.read_bytes()[:12]
+    if len(header) != 12 or struct.unpack("<4sII", header)[:2] != (b"Cr24", 3):
+        raise ValueError("Expected a signed CRX3; run npm run build:chrome first")
+    with zipfile.ZipFile(signed) as crx, zipfile.ZipFile(packages[0]) as chrome:
+        contents = lambda bundle: {name: bundle.read(name) for name in bundle.namelist() if not name.endswith("/")}
+        if contents(crx) != contents(chrome):
+            raise ValueError("Signed CRX differs from the Chrome ZIP; rebuild Chrome before packaging")
+    crx_package = output / f"simple-web2md-ext-{version}-chrome.crx"
+    shutil.copyfile(signed, crx_package)
+    packages.append(crx_package)
 
     # Keep the repository layout: webpack resolves LICENSE and NOTICE.md in app/.. .
     source_files = [REPO / "LICENSE", REPO / "NOTICE.md"]
