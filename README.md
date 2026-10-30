@@ -79,6 +79,8 @@ Microsoft Edge アドオンは公開準備中です。Edge では以下の手順
 
 Mozilla 審査用ソースコードの提出と再現ビルドの手順は [MOZILLA_REVIEW.md](docs/MOZILLA_REVIEW.md) を参照してください。
 
+Safari の macOS / iOS 向け SSH ビルド、署名、アップロード、公証の手順は [SAFARI_BUILD.md](docs/SAFARI_BUILD.md) を参照してください。
+
 ### 開発環境のセットアップ
 
 ```bash
