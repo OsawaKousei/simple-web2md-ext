@@ -79,6 +79,8 @@ Microsoft Edge アドオンは公開準備中です。Edge では以下の手順
 
 Mozilla 審査用ソースコードの提出と再現ビルドの手順は [MOZILLA_REVIEW.md](docs/MOZILLA_REVIEW.md) を参照してください。
 
+Chrome / Edge / Firefox の更新提出用 ZIP と Mozilla 審査用ソースは、`app/` で `npm run package:stores` を実行すると `app/release/stores/<version>/` にまとめて生成します。提出ファイルと更新内容は [ストア更新資料](app/assets/store-update/1.1.md) を参照してください。
+
 Safari の macOS / iOS 向け SSH ビルド、署名、アップロード、公証の手順は [SAFARI_BUILD.md](docs/SAFARI_BUILD.md) を参照してください。
 
 ### 開発環境のセットアップ
