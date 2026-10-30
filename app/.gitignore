@@ -4,6 +4,8 @@ node_modules/
 # settings
 .vscode/
 .env
+scripts/macos/.env
+__pycache__/
 
 # build output
 dist/

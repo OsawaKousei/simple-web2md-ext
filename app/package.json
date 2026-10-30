@@ -1,6 +1,6 @@
 {
   "name": "simple-web2md-ext",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -12,12 +12,22 @@
     "build": "npm run package:chrome && npm run package:firefox",
     "prebuild:firefox": "npm run check",
     "build:firefox": "webpack --mode=production --env browser=firefox",
+    "prebuild:safari": "npm run lint && npm run format",
+    "build:safari": "webpack --mode=production --env browser=safari",
+    "build:apple": "python3 scripts/macos/remote.py build all",
+    "build:macos": "python3 scripts/macos/remote.py build macos",
+    "build:ios": "python3 scripts/macos/remote.py build ios",
+    "build:github": "python3 scripts/macos/remote.py build github",
+    "upload:apple": "python3 scripts/macos/remote.py upload",
+    "notarize:github": "python3 scripts/macos/remote.py notarize",
+    "test:apple": "python3 -m unittest discover -s scripts/macos -p 'test_*.py'",
     "prebuild:chrome": "npm run check",
     "build:chrome": "webpack --mode=production --env browser=chrome",
     "postbuild:chrome": "node scripts/pack-chrome.cjs",
     "package:firefox": "npm run build:firefox && shx mkdir -p release && cd dist/firefox && bestzip ../../release/simple-web2md-ext-firefox.zip *",
     "review:firefox": "npm ci --no-audit && webpack --mode=production --env browser=firefox && shx mkdir -p release && cd dist/firefox && bestzip ../../release/simple-web2md-ext-firefox.zip *",
-    "package:chrome": "npm run build:chrome && shx mkdir -p release && cd dist/chrome && bestzip ../../release/simple-web2md-ext-chrome.zip *"
+    "package:chrome": "npm run build:chrome && shx mkdir -p release && cd dist/chrome && bestzip ../../release/simple-web2md-ext-chrome.zip *",
+    "package:stores": "npm run package:chrome && npm run package:firefox && python3 scripts/package-stores.py"
   },
   "keywords": [],
   "author": {

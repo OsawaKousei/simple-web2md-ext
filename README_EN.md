@@ -1,5 +1,7 @@
 # Web to Markdown
 
+For Safari macOS/iOS SSH builds, signing, upload, and notarization, see [SAFARI_BUILD.md](docs/SAFARI_BUILD.md) (Japanese).
+
 _[日本語版はこちら / Japanese version](README.md)_
 
 A browser extension that saves web pages as Markdown format with just one click.
