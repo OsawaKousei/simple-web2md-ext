@@ -1,0 +1,141 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="2560"
+  height="1600"
+  viewBox="0 0 1280 800"
+  role="img"
+  aria-labelledby="title desc"
+>
+  <title id="title">記事の本文を、Markdownファイルに。</title>
+  <desc id="desc">
+    記事と保存されるMarkdownの内容を並べた機能紹介。実際のブラウザ画面ではなく、変換内容の例を示しています。
+  </desc>
+  <defs>
+    <linearGradient id="background" x2="1" y2="1">
+      <stop stop-color="#edf6f2" />
+      <stop offset="1" stop-color="#f8fbfa" />
+    </linearGradient>
+    <filter id="shadow" x="-15%" y="-15%" width="130%" height="150%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="12" />
+      <feOffset dy="14" />
+      <feComponentTransfer>
+        <feFuncA type="linear" slope="0.09" />
+      </feComponentTransfer>
+      <feMerge>
+        <feMergeNode />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+  <rect width="1280" height="800" fill="url(#background)" />
+  <circle
+    cx="1190"
+    cy="20"
+    r="250"
+    fill="none"
+    stroke="#dceee6"
+    stroke-width="2"
+  />
+  <circle
+    cx="1190"
+    cy="20"
+    r="300"
+    fill="none"
+    stroke="#e3f0eb"
+    stroke-width="2"
+  />
+  <g font-family="Noto Sans CJK JP, Hiragino Kaku Gothic ProN, sans-serif">
+    <image
+      href="../../../public/icons/icon.svg"
+      x="64"
+      y="39"
+      width="42"
+      height="42"
+    />
+    <text x="120" y="69" font-size="24" font-weight="700" fill="#123047">
+      Web to Markdown
+    </text>
+    <text
+      x="1216"
+      y="67"
+      text-anchor="end"
+      font-size="16"
+      font-weight="500"
+      fill="#52756a"
+    >
+      Safari 拡張機能
+    </text>
+    <text
+      x="64"
+      y="159"
+      font-size="47"
+      font-weight="700"
+      letter-spacing="-1.8"
+      fill="#123047"
+    >
+      記事の本文を、Markdownファイルに。
+    </text>
+    <text x="66" y="205" font-size="21" fill="#526b78">
+      見出しや段落、箇条書きを残して、読み返しやすいファイルへ。
+    </text>
+
+    <g filter="url(#shadow)">
+      <rect x="64" y="252" width="500" height="416" rx="22" fill="#fff" />
+      <rect x="690" y="252" width="526" height="416" rx="22" fill="#123047" />
+    </g>
+    <text x="96" y="293" font-size="16" font-weight="700" fill="#07816c">
+      保存元の記事（例）
+    </text>
+    <path d="M64 315h500" stroke="#e0ebe6" />
+    <text x="96" y="370" font-size="31" font-weight="700" fill="#123047">
+      週末の読書メモ
+    </text>
+    <text x="96" y="417" font-size="20" fill="#425967">気になった記事を、</text>
+    <text x="96" y="450" font-size="20" fill="#425967">
+      あとで読み返せるように。
+    </text>
+    <text x="96" y="516" font-size="24" font-weight="700" fill="#123047">
+      気になったこと
+    </text>
+    <circle cx="103" cy="553" r="4" fill="#00aa8d" />
+    <text x="120" y="560" font-size="20" fill="#425967">気づきを残す</text>
+    <circle cx="103" cy="590" r="4" fill="#00aa8d" />
+    <text x="120" y="597" font-size="20" fill="#425967">
+      自分のメモにまとめる
+    </text>
+
+    <text x="722" y="293" font-size="16" font-weight="700" fill="#dcece6">
+      週末の読書メモ.md
+    </text>
+    <path d="M690 315h526" stroke="#365767" />
+    <g
+      font-family="Noto Sans Mono CJK JP, Noto Sans CJK JP, monospace"
+      font-size="20"
+    >
+      <text x="722" y="370" fill="#a7ebd5"># 週末の読書メモ</text>
+      <text x="722" y="417" fill="#eef6f3">気になった記事を、</text>
+      <text x="722" y="450" fill="#eef6f3">あとで読み返せるように。</text>
+      <text x="722" y="516" fill="#a7ebd5">## 気になったこと</text>
+      <text x="722" y="560" fill="#eef6f3">- 気づきを残す</text>
+      <text x="722" y="597" fill="#eef6f3">- 自分のメモにまとめる</text>
+    </g>
+    <g transform="translate(627 460)">
+      <circle r="30" fill="#00aa8d" />
+      <path
+        d="M-12 0h24M4-9l9 9-9 9"
+        fill="none"
+        stroke="#fff"
+        stroke-width="4"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+    </g>
+    <circle cx="72" cy="722" r="6" fill="#00aa8d" />
+    <text x="92" y="730" font-size="21" font-weight="700" fill="#315e58">
+      Safari で表示したページを、.md ファイルとして保存。
+    </text>
+    <text x="66" y="769" font-size="13" fill="#6b827e">
+      変換例です。抽出される内容は、元のページの構造によって異なります。
+    </text>
+  </g>
+</svg>
