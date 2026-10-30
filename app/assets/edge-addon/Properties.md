@@ -3,7 +3,6 @@
 Productivity
 
 # Support details
-
 ## Website
 
 https://web2md.prj.kupac.co.jp/
