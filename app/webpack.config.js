@@ -3,8 +3,8 @@ const CopyWebpackPlugin = require("copy-webpack-plugin");
 
 module.exports = (env = {}) => {
   const browser = env.browser;
-  if (!["chrome", "firefox", "safari"].includes(browser)) {
-    throw new Error("Specify --env browser=chrome, firefox, or safari");
+  if (!["chrome", "firefox"].includes(browser)) {
+    throw new Error("Specify --env browser=chrome or --env browser=firefox");
   }
 
   return {
@@ -38,12 +38,8 @@ module.exports = (env = {}) => {
         patterns: [
           { from: "public/icons", to: "icons" },
           { from: `public/manifest.${browser}.json`, to: "manifest.json" },
-          {
-            from: path.resolve(__dirname, "../LICENSE"),
-            to: "LICENSE",
-            toType: "file",
-          },
-          { from: path.resolve(__dirname, "../NOTICE.md"), to: "NOTICE.md" },
+          { from: "LICENSE", to: "LICENSE", toType: "file" },
+          { from: "NOTICE.md", to: "NOTICE.md" },
         ],
       }),
     ],
