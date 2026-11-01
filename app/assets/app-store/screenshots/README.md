@@ -1,5 +1,125 @@
 # App Store 向けスクリーンショット
 
+## iPadシミュレーターで追加した掲載画像（2026年11月1日）
+
+iPhone版と同じ配色・見出し・説明付きレイアウトで、iPad用の画像2枚を作成しました。
+どちらも **2064×2752のPNG / RGB、透明部分なし** です。
+
+| ファイル                                                           | 内容                                                                  |
+| ------------------------------------------------------------------ | --------------------------------------------------------------------- |
+| [ipad-01-safari-ja-2064x2752.png](ipad-01-safari-ja-2064x2752.png) | Safariの機能拡張メニューにWeb to Markdownが表示された画面。先頭に配置 |
+| [ipad-02-setup-ja-2064x2752.png](ipad-02-setup-ja-2064x2752.png)   | アプリ本体の有効化案内画面。2枚目に配置                               |
+
+登録先は **App Store Connect → iPad → 13インチディスプレイ → アプリスクリーンショット** です。
+実際のiPadシミュレーター画面を使い、縦横比と画面内容を保って説明文を添えています。
+iPhone画像の転用や、Safariの画面・メニューの描き直しは行っていません。
+元の画面は [ipad-safari-raw.png](ipad-safari-raw.png) と [ipad-onboarding-raw.png](ipad-onboarding-raw.png) に保存しています。
+
+撮影環境はiPad Pro 13インチ（M5）・iOS/iPadOS 27.0シミュレーター・Xcode 27.1です。
+提出済み `1.0.0 (2494.16.15)` の生成プロジェクトを撮影用の一時ディレクトリへコピーし、シミュレーター向けにビルドしました。
+拡張の `manifest.json`、`background.js`、`content.js` のSHA-256は、保存済みの提出用IPAと一致します。
+撮影環境・バージョン・ハッシュは [ipad-capture-info.json](ipad-capture-info.json) に記録しています。
+
+アプリ起動、拡張の有効化、Safariの拡張メニュー表示、Markdownの保存をシミュレーター上で確認しました。
+製品ページの変換では1970バイトの `.md` が保存され、記事タイトルを含むことを確認しています。
+掲載画像のSafari画面には、文章中心の自社プライバシーページを表示しています。
+これはシミュレーターでの確認記録です。実機QAの結果としては扱いません。
+
+編集元は同名のSVGです。次のコマンドで再生成できます。
+
+```sh
+python3 app/assets/app-store/screenshots/render-cards.py \
+  ipad-01-safari-ja-2064x2752.svg \
+  ipad-02-setup-ja-2064x2752.svg
+```
+
+## 実機素材から作成した提出用ファイル（2026年11月1日）
+
+ユーザー提供の `../IMG_0003.PNG`、`../IMG_0004.PNG` は、ともに750×1334のRGB画像です。
+元の画像はiPhone SE用の正しいサイズで、Media Managerの「ホームボタン搭載iPhone（中型ディスプレイ）」欄で使用できます。
+必須の「Dynamic Island搭載iPhone（中型ディスプレイ）」欄へ入れる場合はサイズが異なります。
+
+その掲載欄用に、実機画面の縦横比と内容を保ち、見出し・説明を添えた1206×2622のPNGを作成しました。
+端末の外枠やDynamic Islandは合成せず、iPhone SEの実機画面を使った説明付き画像であることを記載しています。
+AI生成や画面内容の描き直しは行っていません。元画像・元動画は変更していません。
+
+| ファイル                                                                                 | 用途・登録先                                                                          |
+| ---------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
+| [iphone-01-safari-ja-1206x2622.png](iphone-01-safari-ja-1206x2622.png)                   | 掲載用スクリーンショット。Safariの機能拡張メニュー。先頭に配置                        |
+| [iphone-02-setup-ja-1206x2622.png](iphone-02-setup-ja-1206x2622.png)                     | 掲載用スクリーンショット。有効化の案内画面。2枚目に配置                               |
+| [ios-app-preview-full-29s-886x1920-h264.mp4](ios-app-preview-full-29s-886x1920-h264.mp4) | 掲載用「App Preview」の全編早送り版。886×1920、約29秒、H.264、30fps、AACステレオ48kHz |
+| [ios-app-preview-886x1920-h264.mp4](ios-app-preview-886x1920-h264.mp4)                   | 掲載用動画の旧案。約25秒の抜粋版。全編早送り版を使用する場合は登録不要                |
+| [ios-review-demo-h264.mp4](ios-review-demo-h264.mp4)                                     | 審査用動画。750×1334、約43秒、H.264、30fps、AAC。外部の再生URLをNotesに記載           |
+
+PNG2枚はRGBで透明部分がなく、画像サイズ・形式を確認済みです。
+App Store Connectの「iPhone → Dynamic Island搭載iPhone（中型ディスプレイ）」で、PNGはスクリーンショット、29秒の全編早送り版MP4はApp Previewへ登録します。
+既存の案内画面だけの掲載画像に代えて、Safariの操作画面を先頭にします。
+この作業ではApp Store Connectへのアップロードは行っていません。
+
+### 動画の用途と編集内容
+
+元動画 `../ScreenRecording_11-01-2026 18-01-58_1.mp4` は、750×1334・約43秒・HEVC（H.265）・可変フレームレートでした。
+App Previewは15〜30秒で、MP4の場合H.264を使う必要があります。そのため、元動画を掲載用動画の欄へそのまま登録できません。
+
+審査用H.264版は全編を保持し、再生速度・画面サイズを変えずに30fpsへ変換しました。容量は約7.9MBです。
+アプリ起動、有効化設定、Safariでの実行、ダウンロード、保存結果のプレビューを確認できます。
+この全編版はApp Preview欄へ入れず、再生できるHTTPSのURLをApp Review InformationのNotesへ記載してください。
+
+掲載用App Previewの全編早送り版は、ユーザーの希望に合わせて元動画全体を約1.487倍速にし、約29秒に収めました。区間の切り取りは行っていません。
+音声も同じ倍率で時間を縮め、音程を保っています。縦横比を保って886×1920のキャンバスへ収めています。
+旧案の25秒版は元動画の2.5〜5.5秒と18〜40秒を順に抜粋したもので、そのまま別ファイルとして残しています。
+審査担当者に渡す動画URLには、通常速度の約43秒の全編版を使います。
+
+端末の機種はユーザー申告のiPhone SE（第2世代）です。OS・インストールしたビルド番号は、この素材だけでは確定していません。
+NotesのOS等の未記入欄は実機・TestFlightで確認して入力してください。
+iPad用には、このページ冒頭のシミュレーター撮影画像を使います。このiPhone画像をiPad画像として転用するものではありません。
+
+### 説明付き画像の再生成
+
+編集元は同名のSVGです。既存のlibrsvg/Cairoレンダラーを使います。
+
+```sh
+python3 app/assets/app-store/screenshots/render-cards.py \
+  iphone-01-safari-ja-1206x2622.svg \
+  iphone-02-setup-ja-1206x2622.svg
+```
+
+### 審査用動画の再変換
+
+FFmpegが利用できる環境で、次のコマンドを実行します。`-n` は既存ファイルの上書きを防ぎます。
+
+```sh
+ffmpeg -n \
+  -i 'app/assets/app-store/ScreenRecording_11-01-2026 18-01-58_1.mp4' \
+  -map 0:v:0 -map '0:a?' \
+  -c:v libx264 -preset medium -crf 20 -pix_fmt yuv420p -r 30 \
+  -c:a aac -b:a 128k -movflags +faststart \
+  app/assets/app-store/screenshots/ios-review-demo-h264.mp4
+```
+
+### 掲載用の29秒全編早送り版の再変換
+
+```sh
+ffmpeg -n \
+  -i 'app/assets/app-store/ScreenRecording_11-01-2026 18-01-58_1.mp4' \
+  -filter_complex '[0:v:0]setpts=(PTS-STARTPTS)/1.487,fps=30,scale=886:-2,pad=886:1920:0:(oh-ih)/2:color=0x123047,setsar=1[v];[0:a:0]atempo=1.487,asetpts=PTS-STARTPTS[a]' \
+  -map '[v]' -map '[a]' \
+  -c:v libx264 -preset medium -b:v 10M -maxrate 12M -bufsize 20M \
+  -profile:v high -level:v 4.0 -pix_fmt yuv420p \
+  -c:a aac -b:a 256k -ar 48000 -ac 2 -movflags +faststart \
+  app/assets/app-store/screenshots/ios-app-preview-full-29s-886x1920-h264.mp4
+```
+
+仕様の参照：[スクリーンショット](https://developer.apple.com/help/app-store-connect/reference/app-information/screenshot-specifications)、[App Preview](https://developer.apple.com/help/app-store-connect/reference/app-information/app-preview-specifications)、[説明文を添えた実画面の掲載](https://developer.apple.com/app-store/asset-best-practices/)。
+
+## iOS 再提出時の注意（2026年11月1日）
+
+Guideline 2.1 への対応として、最新正式 OS の実機でアプリ起動から Safari での変換・保存結果までを画面収録します。既存のシミュレーター画像は、この審査用動画の代わりにはなりません。
+ストア掲載用スクリーンショットも引き続き必要です。案内画面に加えて、Safari の機能拡張メニューなど実際の利用画面を補ってください。
+手順と収集対象は [iOS 審査の準備資料](../../../../docs/IOS_APP_REVIEW.md)、Notes の入力案は [審査情報](../審査情報.md)を参照してください。
+
+## 取得済み画像
+
 2026年10月31日に Mac アプリと iOS シミュレーターから取得しました。
 iOS は既存のアプリをシミュレーター向けにビルドし、`simctl io screenshot` で撮影した実画面です。
 
@@ -50,9 +170,10 @@ SSH セッションには画面収録・アクセシビリティ権限がない�
 
 ## 追加で撮影する画面
 
-Safari 内の機能拡張の選択・Markdown の保存結果はまだ取得していません。
+2026年10月31日のシミュレーター撮影では、Safari内の機能拡張の選択・Markdownの保存結果は未取得でした。
+2026年11月1日にユーザー提供の実機画像・動画でSafari内の操作と保存結果を確認し、上記の提出用ファイルを作成しました。
 
-掲載用には、これらの案内画面に加えて、Safari で変換・保存する機能が分かる画面を撮影してください。
+掲載用には、これらの案内画面に加えて、上記のSafari操作画面を使用してください。
 Safari 拡張の有効化設定は変更していません。
 撮影用に起動した iPhone・iPad は終了し、もともと起動していた別のシミュレーターは操作していません。
 

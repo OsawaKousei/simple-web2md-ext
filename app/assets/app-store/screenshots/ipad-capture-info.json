@@ -1,0 +1,55 @@
+{
+  "capture_date": "2026-11-01",
+  "device": "iPad Pro 13-inch (M5)",
+  "is_physical_device": false,
+  "runtime": {
+    "name": "iOS 27.0",
+    "version": "27.0",
+    "buildversion": "24A434",
+    "identifier": "com.apple.CoreSimulator.SimRuntime.iOS-27-0"
+  },
+  "xcode": "Xcode 27.1\nBuild version 27A9275",
+  "source_build_id": "20261030T161516Z-6124befa",
+  "app": {
+    "CFBundleIdentifier": "jp.co.kupac.web2md",
+    "CFBundleShortVersionString": "1.0.0",
+    "CFBundleVersion": "2494.16.15",
+    "UIDeviceFamily": [1, 2]
+  },
+  "extension_sha256": {
+    "manifest.json": "c16e249bc81e82f235c9703d121df1c00635c84d4517194d29190f32c059d5de",
+    "background.js": "85c3425e095c334d3d9102d64f49a47c25f89ffa931bb3130c6c20496088109f",
+    "content.js": "86a32b09bdab6151bccdf9f16a7a20c8958b4a861352d5bb6aa005c77fe4223e"
+  },
+  "screenshot_page_url": "https://web2md.prj.kupac.co.jp/privacy/",
+  "basic_checks": [
+    "app_launch",
+    "enable_extension",
+    "extension_action_menu",
+    "nonempty_markdown_download"
+  ],
+  "download_check": {
+    "page_url": "https://web2md.prj.kupac.co.jp/",
+    "size_bytes": 1970,
+    "sha256": "3a611369cfb0b613f5ff197d8af752f171d09d4aa0f58803d3cbec4938dfbd18",
+    "first_line": "# Web to Markdown | ページをワンクリックで保存"
+  },
+  "assets": [
+    {
+      "filename": "ipad-safari-raw.png",
+      "sha256": "72ddbc790728e82754f905a92199563a0c34e98aad9b3b3ffe233a07c6bf6120"
+    },
+    {
+      "filename": "ipad-onboarding-raw.png",
+      "sha256": "2e256c888142cf7d92bdfbb5e6a64d1c99a59a11bbf4910bbf6e92ee9ce1792a"
+    },
+    {
+      "filename": "ipad-01-safari-ja-2064x2752.png",
+      "sha256": "88efea12e6bbb0e74766b9dd3d606c058c3c8715ee481e159f6b9f29ee580eb6"
+    },
+    {
+      "filename": "ipad-02-setup-ja-2064x2752.png",
+      "sha256": "6395763310e7e6c7f0b8c5b0846fd796e54563fed7a3337c8f1db3a61ae4b455"
+    }
+  ]
+}

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Render annotated Mac images using the existing brand renderer and real capture."""
+"""Render annotated store images using the brand renderer and real captures."""
 
 import base64
 import mimetypes
@@ -14,11 +14,17 @@ from render import render
 
 if __name__ == "__main__":
     ET.register_namespace("", "http://www.w3.org/2000/svg")
-    for filename in ["mac-01-markdown-ja.svg", "mac-02-how-to-ja.svg"]:
+    filenames = sys.argv[1:] or ["mac-01-markdown-ja.svg", "mac-02-how-to-ja.svg",
+                                 "iphone-01-safari-ja-1206x2622.svg",
+                                 "iphone-02-setup-ja-1206x2622.svg",
+                                 "ipad-01-safari-ja-2064x2752.svg",
+                                 "ipad-02-setup-ja-2064x2752.svg"]
+    for filename in filenames:
         source = ET.parse(ROOT / filename).getroot()
         # Embed local image references in memory so librsvg needs no network or base URI.
         for image in source.iter("{http://www.w3.org/2000/svg}image"):
             path = (ROOT / image.attrib["href"]).resolve()
             mime = mimetypes.guess_type(path.name)[0]
             image.set("href", f"data:{mime};base64," + base64.b64encode(path.read_bytes()).decode())
-        render(ET.tostring(source), ROOT / filename.replace(".svg", ".png"), 2560, 1600)
+        render(ET.tostring(source), ROOT / filename.replace(".svg", ".png"),
+               int(source.attrib["width"]), int(source.attrib["height"]))
