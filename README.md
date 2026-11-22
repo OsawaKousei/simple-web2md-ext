@@ -87,11 +87,7 @@ Safari 版は Mac・iPhone・iPad とも同じ App Store ページから入手�
 
 Mozilla 審査用ソースコードの提出と再現ビルドの手順は [MOZILLA_REVIEW.md](docs/MOZILLA_REVIEW.md) を参照してください。
 
-Chrome / Edge / Firefox の更新提出用 ZIP と Mozilla 審査用ソースは、`app/` で `npm run package:stores` を実行すると `app/release/stores/<version>/` にまとめて生成します。提出ファイルと更新内容は [ストア更新資料](app/assets/store-update/1.1.md) を参照してください。
-
-GitHub Release の本文・添付ファイルと、次回のバージョン（`1.2` / `1.2.0`）は [リリース管理メモ](docs/RELEASING.md) を参照してください。
-
-Safari の macOS / iOS 向け SSH ビルド、署名、アップロード、公証の手順は [SAFARI_BUILD.md](docs/SAFARI_BUILD.md) を参照してください。
+Chrome / Edge / Firefox の更新提出用 ZIP と Mozilla 審査用ソースは、`app/` で `npm run package:stores` を実行すると `app/release/stores/<version>/` にまとめて生成します。公開用の更新内容は [リリースノート](docs/releases/1.1.md) を参照してください。
 
 ### 開発環境のセットアップ
 
@@ -125,6 +121,10 @@ Chrome ビルド時には、`.env` の秘密鍵を使って `release/simple-web2
 片方だけ作成する場合は `npm run package:chrome` または `npm run package:firefox` を実行してください。
 
 問い合わせ先: **dev@kupac.co.jp**。
+
+### ライセンス
+
+このプロジェクトのコードは [MIT ライセンス](LICENSE)で公開しています。著作権表示は `Copyright (c) 2025 n622` です。同梱する第三者ライブラリにはそれぞれのライセンスが適用されます。ライセンス本文と出典は [NOTICE.md](NOTICE.md) をご確認ください。
 
 ### 技術スタック
 

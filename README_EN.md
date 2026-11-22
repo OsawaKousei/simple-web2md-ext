@@ -1,7 +1,5 @@
 # Web to Markdown
 
-For Safari macOS/iOS SSH builds, signing, upload, and notarization, see [SAFARI_BUILD.md](docs/SAFARI_BUILD.md) (Japanese).
-
 _[日本語版はこちら / Japanese version](README.md)_
 
 A browser extension that saves web pages as Markdown files. The Safari version supports Mac, iPhone, and iPad.
@@ -121,6 +119,10 @@ Each ZIP contains the browser-specific `manifest.json` at its root.
 To package one browser, run `npm run package:chrome` or `npm run package:firefox`.
 
 Contact: **dev@kupac.co.jp**.
+
+### License
+
+This project's code is released under the [MIT License](LICENSE), with the copyright notice `Copyright (c) 2025 n622`. Bundled third-party libraries retain their own licenses; see [NOTICE.md](NOTICE.md) for their license texts and sources.
 
 ### Tech Stack
 
