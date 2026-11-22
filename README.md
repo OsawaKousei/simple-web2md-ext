@@ -2,7 +2,7 @@
 
 _[English version](README_EN.md)_
 
-ウェブページを Markdown 形式で保存できるブラウザ拡張機能です。Safari 版は Mac・iPhone・iPad に対応しています。
+ウェブページを Markdown 形式で保存できるブラウザ拡張機能です。
 
 詳しい紹介は[プロダクトページ](https://web2md.prj.kupac.co.jp/)をご覧ください。
 
