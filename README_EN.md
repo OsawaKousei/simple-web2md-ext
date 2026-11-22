@@ -4,7 +4,7 @@ For Safari macOS/iOS SSH builds, signing, upload, and notarization, see [SAFARI_
 
 _[日本語版はこちら / Japanese version](README.md)_
 
-A browser extension that saves web pages as Markdown format with just one click.
+A browser extension that saves web pages as Markdown files. The Safari version supports Mac, iPhone, and iPad.
 
 Learn more on the [product page](https://web2md.prj.kupac.co.jp/).
 
@@ -21,6 +21,7 @@ Learn more on the [product page](https://web2md.prj.kupac.co.jp/).
 - Google Chrome
 - Microsoft Edge
 - Mozilla Firefox
+- Safari (macOS 13 or later, iOS / iPadOS 16 or later)
 
 ## 🚀 Installation
 
@@ -28,12 +29,14 @@ Learn more on the [product page](https://web2md.prj.kupac.co.jp/).
 
 - **Google Chrome**: Open the [Chrome Web Store](https://chromewebstore.google.com/detail/web-to-markdown/kpobgdndklphhmkkjloefgmenidljpdh) and click "Add to Chrome".
 - **Mozilla Firefox**: Open [Firefox Browser Add-ons](https://addons.mozilla.org/en-US/firefox/addon/web-to-markdown-extension/) and click "Add to Firefox".
+- **Microsoft Edge**: Install from [Microsoft Edge Add-ons](https://microsoftedge.microsoft.com/addons/detail/web-to-markdown/fnadejhpnenfeejgcbfcoiepbiimpjon).
+- **Safari (Mac / iPhone / iPad)**: Install the app from the [App Store](https://apps.apple.com/jp/app/web-to-markdown/id6828905022), then enable the Web to Markdown extension in Safari settings.
 
-The Microsoft Edge Add-ons listing is coming soon. You can install manually in Edge using the steps below.
+The same App Store listing provides the Safari app for Mac, iPhone, and iPad.
 
 ### Install manually
 
-1. Download the ZIP for your browser from [GitHub Releases](https://github.com/OsawaKousei/simple-web2md-ext/releases/tag/v1.1)
+1. Download the ZIP for Chrome, Edge, or Firefox from [GitHub Releases](https://github.com/OsawaKousei/simple-web2md-ext/releases)
 
 2. Extract the zip file
 
@@ -52,11 +55,16 @@ The Microsoft Edge Add-ons listing is coming soon. You can install manually in E
 - Click "Load Temporary Add-on"
 - Select `manifest.json` in the extracted folder
 
+### Install manually for Safari on Mac
+
+- Download the DMG or app ZIP from [GitHub Releases](https://github.com/OsawaKousei/simple-web2md-ext/releases), then move the app to Applications
+- Open the app, then enable Web to Markdown in Safari Settings → Extensions
+
 ## 📖 Usage
 
 1. **Open a page**: Open the web page you want to save as Markdown
-2. **Click extension**: Click the "Web to Markdown" icon in the toolbar
-3. **Auto-save**: The page-title.md file will be saved to your downloads folder
+2. **Run the extension**: Use the toolbar icon or Safari's Extensions menu. If Safari asks for permission to access the site, allow it
+3. **Auto-save**: A `.md` file named after the page title is saved on your device
 
 ## ❗ Limitations
 

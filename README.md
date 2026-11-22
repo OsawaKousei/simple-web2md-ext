@@ -2,7 +2,7 @@
 
 _[English version](README_EN.md)_
 
-クリック一つでウェブページを Markdown 形式で保存できるブラウザ拡張機能です。
+ウェブページを Markdown 形式で保存できるブラウザ拡張機能です。Safari 版は Mac・iPhone・iPad に対応しています。
 
 詳しい紹介は[プロダクトページ](https://web2md.prj.kupac.co.jp/)をご覧ください。
 
@@ -19,6 +19,7 @@ _[English version](README_EN.md)_
 - Google Chrome
 - Microsoft Edge
 - Mozilla Firefox
+- Safari（macOS 13 以降、iOS / iPadOS 16 以降）
 
 ## 🚀 インストール方法
 
@@ -26,12 +27,14 @@ _[English version](README_EN.md)_
 
 - **Google Chrome**: [Chrome ウェブストア](https://chromewebstore.google.com/detail/web-to-markdown/kpobgdndklphhmkkjloefgmenidljpdh)で「Chrome に追加」をクリック
 - **Mozilla Firefox**: [Firefox Browser Add-ons](https://addons.mozilla.org/en-US/firefox/addon/web-to-markdown-extension/)で「Firefox へ追加」をクリック
+- **Microsoft Edge**: [Microsoft Edge アドオン](https://microsoftedge.microsoft.com/addons/detail/web-to-markdown/fnadejhpnenfeejgcbfcoiepbiimpjon)からインストール
+- **Safari（Mac / iPhone / iPad）**: [App Store](https://apps.apple.com/jp/app/web-to-markdown/id6828905022)からアプリをインストールし、Safari の設定で Web to Markdown の機能拡張を有効にする
 
-Microsoft Edge アドオンは公開準備中です。Edge では以下の手順で手動インストールできます。
+Safari 版は Mac・iPhone・iPad とも同じ App Store ページから入手できます。
 
 ### 手動でインストール
 
-1. [GitHub リリースページ](https://github.com/OsawaKousei/simple-web2md-ext/releases/tag/v1.1)からブラウザ用 ZIP をダウンロード
+1. [GitHub リリースページ](https://github.com/OsawaKousei/simple-web2md-ext/releases)から Chrome / Edge / Firefox 用 ZIP をダウンロード
 
 2. zip ファイルを解凍
 
@@ -50,11 +53,16 @@ Microsoft Edge アドオンは公開準備中です。Edge では以下の手順
 - 「一時的なアドオンを読み込む」をクリック
 - ZIP を解凍したフォルダ内の `manifest.json` を選択
 
+### Safari（Mac）を手動でインストール
+
+- [GitHub リリースページ](https://github.com/OsawaKousei/simple-web2md-ext/releases)から DMG またはアプリ本体の ZIP をダウンロードし、アプリを Applications に配置
+- アプリを起動し、Safari の「設定 → 機能拡張」で Web to Markdown を有効化
+
 ## 📖 使用方法
 
 1. **ページを開く**: Markdown で保存したいウェブページを開きます
-2. **拡張機能をクリック**: ツールバーの「Web to Markdown」アイコンをクリック
-3. **自動保存**: ページタイトル.md ファイルがダウンロードフォルダに保存されます
+2. **拡張機能を実行**: ツールバーのアイコン、または Safari の機能拡張メニューから Web to Markdown を実行します。Safari でサイトへのアクセス許可を求められた場合は許可してください
+3. **自動保存**: ページタイトルを使った名前の `.md` ファイルが端末に保存されます
 
 ## ❗ 制限事項
 
