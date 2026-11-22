@@ -9,6 +9,8 @@ const firefoxStoreUrl =
   "https://addons.mozilla.org/en-US/firefox/addon/web-to-markdown-extension/";
 const edgeStoreUrl =
   "https://microsoftedge.microsoft.com/addons/detail/web-to-markdown/fnadejhpnenfeejgcbfcoiepbiimpjon";
+const appStoreUrl =
+  "https://apps.apple.com/jp/app/web-to-markdown/id6828905022";
 const contactFormUrl = "https://forms.gle/vuYW9xgBGa9h6E956";
 
 export default function Home() {
@@ -30,14 +32,14 @@ export default function Home() {
       <main>
         <section className="hero wrap">
           <div className="hero-copy">
-            <p className="eyebrow">CHROME · EDGE · FIREFOX</p>
+            <p className="eyebrow">CHROME · EDGE · FIREFOX · SAFARI</p>
             <h1>
               気になったページを、
               <br />
               <span>Markdownで手元に。</span>
             </h1>
             <p className="lead">
-              ツールバーのアイコンをクリックするだけ。記事の本文を読みやすいMarkdownに変換し、
+              ブラウザの拡張機能から実行するだけ。記事の本文を読みやすいMarkdownに変換し、
               <code>.md</code> ファイルとして保存するブラウザ拡張機能です。
             </p>
             <div className="hero-actions">
@@ -49,7 +51,8 @@ export default function Home() {
               </a>
             </div>
             <p className="small-note">
-              無料・オープンソース。Chrome / Edge / Firefox の公式ストアで公開中です。
+              無料・オープンソース。Safari は Mac / iPhone / iPad
+              に対応しています。
             </p>
           </div>
           <div className="hero-preview">
@@ -134,11 +137,19 @@ export default function Home() {
                 <strong>Microsoft Edge アドオン</strong>
                 <span className="store-action">ストアで入手 ↗</span>
               </a>
-              <div className="store-card upcoming">
-                <span className="store-status">対応予定</span>
-                <strong>Safari</strong>
-                <span>Coming soon</span>
-              </div>
+              <a
+                className="store-card available"
+                href={appStoreUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span className="store-status">
+                  公開中 · Mac / iPhone / iPad
+                </span>
+                <strong>Safari — App Store</strong>
+                <span>macOS 13 以降 / iOS・iPadOS 16 以降</span>
+                <span className="store-action">App Store で入手 ↗</span>
+              </a>
             </div>
             <p className="source-links">
               手動で導入する場合は{" "}
@@ -159,9 +170,9 @@ export default function Home() {
             <div className="feature-grid">
               <article>
                 <span className="feature-icon">01</span>
-                <h3>ワンクリックで保存</h3>
+                <h3>かんたんに保存</h3>
                 <p>
-                  保存したいページでアイコンを押すだけ。ページタイトルを使ったファイル名でダウンロードします。
+                  保存したいページで拡張機能を実行するだけ。ページタイトルを使ったファイル名でダウンロードします。
                 </p>
               </article>
               <article>
@@ -201,8 +212,9 @@ export default function Home() {
                 <div>
                   <h3>拡張機能を追加</h3>
                   <p>
-                    Chrome / Edge / Firefox の公式ストアから追加します。Safari
-                    は今後対応予定です。
+                    Chrome / Edge / Firefox は各公式ストアから追加します。Safari
+                    は App Store からアプリを入手し、Safari の設定で Web to
+                    Markdown の機能拡張を有効にします。
                   </p>
                 </div>
               </li>
@@ -210,14 +222,20 @@ export default function Home() {
                 <span>2</span>
                 <div>
                   <h3>ページを開く</h3>
-                  <p>保存したいウェブページをブラウザで開きます。</p>
+                  <p>
+                    保存したいウェブページをブラウザで開きます。Safari
+                    でサイトへのアクセス許可を求められた場合は許可してください。
+                  </p>
                 </div>
               </li>
               <li>
                 <span>3</span>
                 <div>
-                  <h3>アイコンをクリック</h3>
-                  <p>Markdownファイルがダウンロードされます。</p>
+                  <h3>拡張機能を実行</h3>
+                  <p>
+                    ツールバーのアイコン、または Safari
+                    の機能拡張メニューから実行すると、Markdownファイルがダウンロードされます。
+                  </p>
                 </div>
               </li>
             </ol>

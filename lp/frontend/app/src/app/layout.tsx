@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     template: "%s | Web to Markdown",
   },
   description:
-    "閲覧中のウェブページをワンクリックでMarkdownファイルに保存。Chrome、Edge、Firefox対応のブラウザ拡張機能。",
+    "閲覧中のウェブページをMarkdownファイルに保存。Chrome、Edge、Firefox、Safari対応のブラウザ拡張機能。Safari版はMac・iPhone・iPad向けにApp Storeで公開中。",
   alternates: { canonical: "/" },
   icons: { icon: "/icon_128.png" },
 };
